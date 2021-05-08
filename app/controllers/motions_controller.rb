@@ -1,5 +1,8 @@
 class MotionsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
   def index
+   @motion = current_user.motion
   end
 
   def new
@@ -14,6 +17,8 @@ class MotionsController < ApplicationController
       render :new  
     end
   end
+
+  
 
   private
 
