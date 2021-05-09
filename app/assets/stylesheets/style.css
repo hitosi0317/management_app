@@ -150,3 +150,13 @@ justify-content: space-between;
 .training {
   text-align: center;
 }
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.training-list {
+  width: 25;
+  font-size: 35px;
+}
