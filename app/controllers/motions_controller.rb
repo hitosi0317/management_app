@@ -18,6 +18,10 @@ class MotionsController < ApplicationController
     end
   end
 
+  def show
+   @motion = Motion.find(params[:id])
+  end
+
   private
 
   def motion_params
