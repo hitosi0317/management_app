@@ -1,8 +1,8 @@
 class MotionsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-
   def index
-   @motion = current_user.motion
+    if user_signed_in? && current_user
+      @motion = current_user.motion
+    end
   end
 
   def new
@@ -17,8 +17,6 @@ class MotionsController < ApplicationController
       render :new  
     end
   end
-
-  
 
   private
 
