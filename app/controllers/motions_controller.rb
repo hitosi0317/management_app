@@ -1,6 +1,6 @@
 class MotionsController < ApplicationController
   def index
-    if user_signed_in? && current_user
+    if user_signed_in? 
       @motion = current_user.motion
     end
   end
