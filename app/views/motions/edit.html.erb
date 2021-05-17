@@ -1,0 +1,35 @@
+<div class="contents row">
+ <div class="container">
+  <h3>編集してください</h3>
+
+  <%= form_with(model: @motion, local: true) do |form| %>
+  <%= render 'shared/error_messages', model: form.object %>
+    <div class="taining-box">
+    <h2>1項目</h2>
+    <%= form.text_field :training1, placeholder: "トレーニングを入力してください" %>
+    <%= form.text_field :count1, placeholder: "回数を入力してください" %>
+    </div>
+    <div class="taining-box">
+     <h2>2項目</h2>
+    <%= form.text_field :training2, placeholder: "トレーニングを入力してください" %>
+    <%= form.text_field :count2, placeholder: "回数を入力してください" %>
+    </div>
+    <div class="taining-box">
+      <h2>3項目</h2>
+    <%= form.text_field :training3, placeholder: "トレーニングを入力してください" %>
+    <%= form.text_field :count3, placeholder: "回数を入力してください" %>
+    </div>
+    <div class="taining-box">
+      <h2>4項目</h2>
+    <%= form.text_field :training4, placeholder: "トレーニングを入力してください" %>
+    <%= form.text_field :count4, placeholder: "回数を入力してください" %>
+    </div>
+    <div class="taining-box">
+      <h2>5項目</h2>
+    <%= form.text_field :training5, placeholder: "トレーニングを入力してください" %>
+    <%= form.text_field :count5, placeholder: "回数を入力してください" %>
+    </div>
+    <%= form.submit "決定"  %>
+  <% end %>
+  </div>
+</div>

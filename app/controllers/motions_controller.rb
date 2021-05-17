@@ -1,6 +1,6 @@
 class MotionsController < ApplicationController
   def index
-    if user_signed_in? && current_user
+    if user_signed_in? 
       @motion = current_user.motion
     end
   end
@@ -16,6 +16,25 @@ class MotionsController < ApplicationController
     else
       render :new  
     end
+  end
+
+
+  def edit
+    @motion = Motion.find(params[:id])
+  end
+
+  def update
+    @motion = Motion.find(params[:id])
+    if @motion.update(motion_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @motion = Motion.find(params[:id])
+    redirect_to root_path if @motion.destroy
   end
 
   private
