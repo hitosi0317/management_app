@@ -1,6 +1,7 @@
 class CreateMotions < ActiveRecord::Migration[6.0]
   def change
     create_table :motions do |t|
+      t.float    :weight,    null: false
       t.string   :training1, null: false
       t.string   :training2 
       t.string   :training3
@@ -11,6 +12,7 @@ class CreateMotions < ActiveRecord::Migration[6.0]
       t.integer  :count3
       t.integer  :count4
       t.integer  :count5
+      t.text     :memo     
       t.references :user,  foreign_key: true
       t.timestamps
     end

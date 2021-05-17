@@ -1,6 +1,7 @@
 class MotionsController < ApplicationController
   def index
     if user_signed_in? 
+      binding.pry
       @motion = current_user.motion
     end
   end

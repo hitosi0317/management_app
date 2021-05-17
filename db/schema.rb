@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_05_05_155303) do
 
   create_table "motions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.float "weight", null: false
     t.string "training1", null: false
     t.string "training2"
     t.string "training3"
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_155303) do
     t.integer "count3"
     t.integer "count4"
     t.integer "count5"
+    t.text "memo"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
