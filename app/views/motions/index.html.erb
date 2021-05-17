@@ -10,22 +10,37 @@
   <%= @motion.training1 %>
   <%= @motion.count1  %>
   </div> 
+<% if @motion.training2.present?%>
   <div class="training-list">
   <%= @motion.training2  %>
   <%= @motion.count2  %>
   </div> 
+<% end%>
+<% if @motion.training3.present?%>
   <div class="training-list">
   <%= @motion.training3  %>
   <%= @motion.count3  %>
   </div>
+<% end %>
+<% if @motion.training4.present?%>
   <div class="training-list">
   <%= @motion.training4  %>
   <%= @motion.count4  %> 
   </div>
+<% end %>
+ <% if @motion.training5.present?%> 
   <div class="training-list">
   <%= @motion.training5  %>
   <%= @motion.count5  %>  
   </div>
 </div>
 <% end %>
+<<<<<<< Updated upstream
+=======
+<% end %>
+<%if @motion != nil%>
+ <%= link_to "編集する", edit_motion_path(@motion.id),class:"motion-btn"%>
+ <%= link_to "削除", motion_path(@motion.id), method: :delete, class:"motion-btn" %>
+<% end %>
+>>>>>>> Stashed changes
 </div>
