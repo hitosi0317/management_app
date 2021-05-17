@@ -8,6 +8,11 @@
         <%= f.text_field :nickname, autofocus: true, maxlength: "10" %>
    </div>
 
+   <div class="field">
+    <%= f.label :height %> <em>(小数点以下第一位まで使用可能)</em><br />
+    <%= f.number_field :height, step: '0.1',placeholder: "123.4", min: "120" %>
+  </div>
+
 
   <div class="field">
     <%= f.label :email %><br />
