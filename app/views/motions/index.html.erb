@@ -35,6 +35,14 @@
   </div>
 </div>
 <% end %>
+<div class="whight-right">
+  <div class="whight">
+  <h3><%=@motion.user.nickname%>さんの現在の体重</h3>
+  <%= @motion.weight %>
+  <h3>BMIチエック 肥満度 標準体重の目安<h3>
+  <h3>現在の<%=@motion.user.nickname%>さんのBMIは<%= @motion.weight / (@motion.user.height / @motion.user.height)%>
+  </div>
+</div>
 
 <% end %>
 <%if @motion != nil%>
