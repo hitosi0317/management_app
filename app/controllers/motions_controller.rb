@@ -18,7 +18,7 @@ class MotionsController < ApplicationController
   private
 
   def motion_params
-    params.require(:motion).permit(:training1,:training2,:training3,:training4,:training5,:count1,:count2,:count3,:count4,:count5).merge(user_id: current_user.id)
+    params.require(:motion).permit(:weight,:training1,:training2,:training3,:training4,:training5,:count1,:count2,:count3,:count4,:count5,:memo).merge(user_id: current_user.id)
   end
 
 end
