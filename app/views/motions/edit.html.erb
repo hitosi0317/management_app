@@ -1,9 +1,12 @@
-<div class="contents row">
+ <div class="contents row">
  <div class="container">
-  <h3>編集してください</h3>
+  
 
   <%= form_with(model: @motion, local: true) do |form| %>
   <%= render 'shared/error_messages', model: form.object %>
+    <h3>現在の体重を入力してください</h3>
+    <%= form.number_field :weight, step: '0.1', min: "30",placeholder: "55"%><em>kg</em>
+    <h3>編集してください。</h3>
     <div class="taining-box">
     <h2>1項目</h2>
     <%= form.text_field :training1, placeholder: "トレーニングを入力してください" %>
@@ -28,6 +31,10 @@
       <h2>5項目</h2>
     <%= form.text_field :training5, placeholder: "トレーニングを入力してください" %>
     <%= form.text_field :count5, placeholder: "回数を入力してください" %>
+    </div>
+    <div class>
+    <h3>今日の予定などを記入できます</h3>
+    <%= form.text_field :memo, placeholder: "任意で記入できます(例)~をする,~を何時にまでに行う,など"%>
     </div>
     <%= form.submit "決定"  %>
   <% end %>
