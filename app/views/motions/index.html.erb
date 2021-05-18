@@ -40,7 +40,49 @@
   <h3><%=@motion.user.nickname%>さんの現在の体重</h3>
   <%= @motion.weight %>
   <h3>BMIチエック 肥満度 標準体重の目安<h3>
-  <h3>現在の<%=@motion.user.nickname%>さんのBMIは<%= @motion.weight / (@motion.user.height / @motion.user.height)%>
+  <table class="border">
+    <tbody>
+    <tr>
+      <th>BMI</th>
+      <th>肥満度判定(目安)</th>
+    </tr>
+    <tr>
+      <td>18.5未満</td>
+      <td>低体重 (やせ)</td>
+    </tr>
+    <tr>
+      <td>18.5~25未満</td>
+      <td>普通体重</td>
+    </tr>
+    <tr>
+      <td>25~30未満</td>
+      <td>肥満 (1度)</td>
+    </tr>
+    <tr>
+      <td>30~35未満</td>
+      <td>肥満 (2度)</td>
+    </tr>
+    <tr>
+      <td>35~40未満</td>
+      <td>肥満 (3度)</td>
+    </tr>
+    <tr>
+      <td>40以上</td>
+      <td>肥満 (4度)</td>
+    </tr>
+    </tbody>
+  </table>
+  <h3>現在の<%=@motion.user.nickname%>さんのBMIは<%= @bmi.round(2)%>
+  <%if @bmi <= 25.00 && @bmi >= 18.50 %>
+   <h3>標準です</h3>
+ 
+  <% elsif @bmi <= 25.00%>
+   <h3>肥満気味です  標準まで<%= @bmidifference.round(2)%></h3>
+
+  <% else %>
+    <h3>痩せ気味です  標準まで<%=@bmidifference.round(2) %></h3>
+ 
+  <% end %>
   </div>
 </div>
 
