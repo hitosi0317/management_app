@@ -77,13 +77,14 @@
    <h3>標準です</h3>
  
   <% elsif @bmi <= 25.00%>
-   <h3>肥満気味です  標準まで<%= @bmidifference.round(2)%></h3>
+      <h3>痩せ気味です  標準まで<%= @bmidifference.round(2) %>増やしましょう</h3>
 
   <% else %>
-    <h3>痩せ気味です  標準まで<%=@bmidifference.round(2) %></h3>
+   <h3>肥満気味です  標準まで<%= @bmidifference.round(2) %>減らしましょう</h3>
+
  
   <% end %>
-  </div>
+  
 </div>
 
 <% end %>
