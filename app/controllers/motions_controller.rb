@@ -2,12 +2,15 @@ class MotionsController < ApplicationController
   def index
     if user_signed_in? 
       @motion = current_user.motion
+      if @motion.present?
       @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10000
-      if @bmi <= 25
-       @bmidifference =  @bmi - 25
-      elsif @bmi <= 18.5
-       @bmidifference = @bmi -18.5 
+    
+      if 25 <= @bmi
+       @bmidifference = 25.00 - @bmi
+      else
+       @bmidifference = 18.5 - @bmi
       end
+    end
     end
   end
 
