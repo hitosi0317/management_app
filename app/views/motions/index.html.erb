@@ -1,3 +1,6 @@
-<% @current_user.each do |currnet_user|%>
-  <%= currnet_user %>
-<% end %>
+
+
+ 
+<li><%= link_to "今日の項目", motion_path(current_user.id), class: "user-nickname"%></li> 
+  
+

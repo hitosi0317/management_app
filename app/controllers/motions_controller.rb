@@ -1,6 +1,8 @@
 class MotionsController < ApplicationController
   def index
-    @current_user = current_user.motion
+    if user_signed_in?
+    @motion = Motion.all
+    end
   end
 
   def new
