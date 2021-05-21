@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   has_one :motion
   has_many :meetings
+  has_many :history
 end

@@ -30,6 +30,22 @@ class MotionsController < ApplicationController
 
   def edit
     @motion = Motion.find(params[:id])
+
+  end
+
+  def show
+    if user_signed_in? 
+      @motion = Motion.find(params[:id])
+      if @motion.present?
+      @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10000
+    
+      if 25 <= @bmi
+       @bmidifference = 25.00 - @bmi
+      else
+       @bmidifference = 18.5 - @bmi
+      end
+    end
+    end
   end
 
   def update
