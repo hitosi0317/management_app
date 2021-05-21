@@ -1,38 +1,6 @@
-<<<<<<< Updated upstream
-<div class="wrapper">
 
-<div class="training today">
-  <h2 class="training text">本日のトレーニング項目です</h2>
-</div>
-<% if @motion == nil%>
- <% else %>
-<div class="contents row">
-  <div class="training-list">
-  <%= @motion.training1 %>
-  <%= @motion.count1  %>
-  </div> 
-  <div class="training-list">
-  <%= @motion.training2  %>
-  <%= @motion.count2  %>
-  </div> 
-  <div class="training-list">
-  <%= @motion.training3  %>
-  <%= @motion.count3  %>
-  </div>
-  <div class="training-list">
-  <%= @motion.training4  %>
-  <%= @motion.count4  %> 
-  </div>
-  <div class="training-list">
-  <%= @motion.training5  %>
-  <%= @motion.count5  %>  
-  </div>
-</div>
-<% end %>
-</div>
-=======
 
  
 <li><%= link_to "今日の項目", motion_path(current_user.id), class: "user-nickname"%></li> 
   
->>>>>>> Stashed changes
+
