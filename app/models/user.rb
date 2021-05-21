@@ -6,5 +6,8 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, length: { maximum: 10 }
 
+
   has_many :motion
+  has_many :meetings
+  has_many :history
 end
