@@ -1,7 +1,12 @@
 class MotionsController < ApplicationController
   def index
+<<<<<<< Updated upstream
     if user_signed_in? 
       @motion = current_user.motion
+=======
+    if user_signed_in?
+    @motion = Motion.all
+>>>>>>> Stashed changes
     end
   end
 
