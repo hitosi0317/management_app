@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'motions#index'
   resources :meetings
-  resources :motions, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :motions, only: [:index, :new, :create, :edit, :update, :destroy, :show]
 end
