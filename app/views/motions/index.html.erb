@@ -1,6 +1,5 @@
-
-
- 
-<li><%= link_to "今日の項目", motion_path(current_user.id), class: "user-nickname"%></li> 
-  
-
+<%  if user_signed_in? && @motion%>
+<%@motion.each do |motion|%>
+<li><%= link_to "今日の項目", motion_path(motion.id), class: "user-nickname"%></li> 
+<% end%>
+<% end %>
