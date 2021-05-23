@@ -1,5 +1,11 @@
+<div class="background image">
+    
+
 <%  if user_signed_in? && @motion%>
-<%@motion.each do |motion|%>
-<li><%= link_to "今日の項目", motion_path(motion.id), class: "user-nickname"%></li> 
+<% current_user.motion.each do |motion|%>
+<div class="btn">
+<li><%= link_to "今日の項目", motion_path(motion.id), class: "show btn"%></li> 
+</div>
 <% end%>
 <% end %>
+</div>
