@@ -2,6 +2,16 @@ class MotionsController < ApplicationController
   def index
     @motion = Motion.all if user_signed_in?
   end
+  # @items = Item.all
+
+  # @item.each do |item|
+  #   if item.user_id == current_user.id
+  #     ~~~
+  #   end
+  # end
+
+  # current_user.items each do |item|
+  # do
 
   def new
     @motion = Motion.new

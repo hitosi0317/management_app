@@ -1,4 +1,4 @@
-<<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <h1>予定表</h1>
 
@@ -11,22 +11,27 @@
   </thead>
 
   <tbody>
-    <% @meetings.each do |meeting| %>
+  <%if user_signed_in? %>
+    <% current_user.meetings.each do |meeting| %>
       <tr>
         <td><%= meeting.name %></td>
         <td><%= meeting.start_time%></td>
       </tr>
     <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <%= month_calendar events: @meetings do |date, meetings| %>
   <%= date %>
-
+  <%if user_signed_in?%>
   <% meetings.each do |meeting|%>
+  <% if meeting.user_id == current_user.id%>
     <div>
       <%= meeting.name%>
     </div>
+    <% end%>
+  <% end %>
   <% end %>
 <% end %>
 
