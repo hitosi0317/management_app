@@ -8,6 +8,8 @@
 
 # URL
 
+- https://management-app123.herokuapp.com/
+
 - テスト用アカウント
 
 # 利用方法
