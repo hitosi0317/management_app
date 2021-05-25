@@ -1,3 +1,21 @@
+# アプリケーション名 
+
+- management_app
+
+# アプリケーションの概要
+
+- このアプリケーションでは目標を立てて予定を管理したりする
+
+# URL
+
+- テスト用アカウント
+
+# 利用方法
+ 
+# 課題解決
+
+# 洗い出した用件
+
 
 
 
@@ -14,18 +32,27 @@
 
 ### Association
 
-- has_one :motion
-- has_one :meal
+- has_many :motion
 
 ##  motioons テーブル
 
 | Column                    | Type               |  Options         |
 | --------------------------| ------------------ | ---------------- |
-| training1_id              | integer            |                  |
-| training2_id              | integer            |                  |
-| training3_id              | integer            |                  |
-| running                   | integer            |                  |
+| weight                    | float              | null: false      |
+| training1                 | string             | null: false      |
+| training1                 | string             |                  |
+| training2                 | string             |                  |
+| training3                 | string             |                  |
+| training4                 | string             |                  |
+| training5                 | string             |                  |
+| count1                    | integer            | null: false      |
+| count2                    | integer            |                  |
+| count3                    | integer            |                  |
+| count4                    | integer            |                  |
+| count5                    | integer            |                  |
+| memo                      | text               |                  |
 | user                      | references         | foreign_key:true |
+
 
 ### Association
 
@@ -33,15 +60,4 @@
 
 
 
-## meals テーブル
-
-| Column           | Type               |  Options          |
-| -----------------| ------------------ | ----------------- |
-| breakfast        | text               |                   |
-| lunch            | text               |                   |
-| dinner           | text               |                   |
-| user             | references         | foreign_key:true  |
-### Association
-
-- belongs_to :user
 
