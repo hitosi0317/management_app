@@ -1,16 +1,32 @@
-
-.nav {
-display: flex;
-justify-content: space-between;
-
-}
-.lists-right {
+.wrapper {
   display: flex;
-  list-style: none;
-  margin: 33px 33px;
-  text-align: right;
+  width: 100%;
+  background-color: red;
+  margin: 0 auto;
+  height: 500px;
+  
 }
 
+
+.taining-left {
+  width: 50%;
+  font-size: 24px;
+  display: block;
+}
+
+.training-list {
+  border: 1px solid;
+  height: 50px;
+  padding-bottom: 20px;
+  margin: 0 0 0 10px;
+}
+
+.weight-right {
+
+}
+
+.bmi {
+}
 .login {
   margin-right: 33px;
   border: none;
@@ -18,72 +34,14 @@ justify-content: space-between;
   border-radius: 5px;
   
 }
-
-.sign-up{
-  margin-right: 33px;
-}
-
-.user-nickname {
-  text-decoration: none;
-  margin-right: 33px;
-}
-
-.logout {
-  text-decoration: none;
-  margin-right: 33px;
-}
-
-.wrapper {
-  width: 80%;
-  background-color: red;
-  margin: 0 auto;
-  height: 500px;
-}
-
-.training {
-  text-align: center;
-}
-
-.row {
-  
-  display: flex;
-  flex-direction: column;
-}
-
-.training-list {
-  width: 50%;
-  font-size: 35px;
-  border: 1px solid;
-  padding: 20px;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.motion-btn {
-  border: 3px solid;
-  border-radius: 5px;
-  padding: 15px 40px;
-  
-  display: inline-block;
-  text-align: center;
-}
 .border {
   border: 1px solid black;
-  width: 50%;
+
 }
 
 .border th, .border td  {
   border: 1px solid black;
 }
-
-.image {
-  width: 100%;
-  height: 500px;
-  padding-top: calc(300 / 1000 * 100%);
-  background: url(publicdomainq-0039439gbq.jpg) center center /cover no-repeat;
-  
-}
-
 .btn {
 display: inline-block;
  background-color: blue;
