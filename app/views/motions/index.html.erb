@@ -1,11 +1,127 @@
+<<<<<<< Updated upstream
 <div class="background image">
     
+=======
+
+<div class="wrapper">
+<div class="taining-left">
+<% if user_signed_in? %>
+<% if current_user.motion != []%>
+<h2 class="center"><%= current_user.nickname%></h2>
+<div class="contents row">
+  <div class="training-list">
+<% if current_user.motion.last.training1.present?%>
+  <%= current_user.motion.last.training1 %>
+  <%= current_user.motion.last.count1  %>
+  </div>
+<% end %> 
+<% if current_user.motion.last.training2.present?%>
+  <div class="training-list">
+  <%= current_user.motion.last.training2 %>
+  <%= current_user.motion.last.count2  %>
+  </div> 
+<% end%>
+<% if current_user.motion.last.training3.present?%>
+  <div class="training-list">
+  <%= current_user.motion.last.training3  %>
+  <%= current_user.motion.last.count3  %>
+  </div>
+<% end %>
+<% if current_user.motion.last.training4.present?%>
+  <div class="training-list">
+  <%= current_user.motion.last.training4  %>
+  <%= current_user.motion.last.count4%> 
+  </div>
+<% end %>
+ <% if current_user.motion.last.training5.present?%> 
+  <div class="training-list">
+  <%= current_user.motion.last.training5  %>
+  <%= current_user.motion.last.count5  %>  
+  </div>
+
+<% end %>
+
+</div>
+</div>
+
+
+<div class="weight-right">
+  <div class="whight">
+  <div class="center">
+  
+  <h3><%=current_user.nickname%>さんの現在の体重</h3>
+  <%= current_user.motion.last.weight %>
+  <h3>現在の<%=current_user.nickname%>さんのBMIは<%= @bmi.round(2)%>
+  <%if @bmi <= 25.00 && @bmi >= 18.50 %>
+   <h3>標準です！！この体重を維持しましょう！！(※BMIを基準にしています)</h3>
+ 
+  <% elsif @bmi <= 25.00%>
+      <h3>痩せ気味です  標準まで<%= @bmidifference.round(2) %>増やしましょう!!</h3>
+
+  <% else %>
+   <h3>肥満気味です  標準まで<%= @bmidifference.round(2) %>減らしましょう!!</h3>
+  <% end%>
+  </div>
+  <h3>BMIチエック 肥満度 標準体重の目安<h3>
+  <table class="border bmi">
+    <tbody>
+    <tr>
+      <th>BMI</th>
+      <th>肥満度判定(目安)</th>
+    </tr>
+    <tr>
+      <td>18.5未満</td>
+      <td>低体重 (やせ)</td>
+    </tr>
+    <tr>
+      <td>18.5~25未満</td>
+      <td>普通体重</td>
+    </tr>
+    <tr>
+      <td>25~30未満</td>
+      <td>肥満 (1度)</td>
+    </tr>
+    <tr>
+      <td>30~35未満</td>
+      <td>肥満 (2度)</td>
+    </tr>
+    <tr>
+      <td>35~40未満</td>
+      <td>肥満 (3度)</td>
+    </tr>
+    <tr>
+      <td>40以上</td>
+      <td>肥満 (4度)</td>
+    </tr>
+    </tbody>
+  </table>
+  <% end %>
+</div>
+</div>
+</div>
+
+>>>>>>> Stashed changes
 
 <%  if user_signed_in? && @motion%>
-<% current_user.motion.each do |motion|%>
+<% current_user.motion.each_with_index do |motion, index|%>
 <div class="btn">
-<li><%= link_to "今日の項目", motion_path(motion.id), class: "show btn"%></li> 
+<li><%= link_to index, motion_path(motion.id), class: "show btn"%></li> 
 </div>
 <% end%>
 <% end %>
 </div>
+<% end %>
+
+
+
+
+
+<%# <%if user_signed_in?%>
+  <%# <% meetings.each do |meeting|%>
+  <%# <% if meeting.user_id == current_user.id%>
+    <%# <div>
+      <%= meeting.name%>
+    <%# </div>
+    <% end%>
+ 
+
