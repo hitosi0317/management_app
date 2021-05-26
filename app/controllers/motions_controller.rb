@@ -1,17 +1,19 @@
 class MotionsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :show, :destroy]
+  before_action :move_to_index, except: [:index, :show, :new, :create,:destroy]
+  before_action :set_motion, only: [:edit, :show, :destroy, :update]
   def index
-    @motion = Motion.all if user_signed_in?
+    
+    @motions = Motion.all if user_signed_in?
+    @motion = Motion.last
+    @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
+
+    @bmidifference = if 25 <= @bmi
+                       25.00 - @bmi
+                     else
+                       18.5 - @bmi
+                     end
   end
-  # @items = Item.all
-
-  # @item.each do |item|
-  #   if item.user_id == current_user.id
-  #     ~~~
-  #   end
-  # end
-
-  # current_user.items each do |item|
-  # do
 
   def new
     @motion = Motion.new
@@ -31,18 +33,14 @@ class MotionsController < ApplicationController
   end
 
   def show
-    if user_signed_in?
-      @motion = Motion.find(params[:id])
-      if @motion.present?
-        @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
+      @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
 
-        @bmidifference = if 25 <= @bmi
-                           25.00 - @bmi
-                         else
-                           18.5 - @bmi
-                         end
-      end
-    end
+      @bmidifference = if 25 <= @bmi
+                         25.00 - @bmi
+                       else
+                         18.5 - @bmi
+                       end
+
   end
 
   def update
@@ -55,7 +53,6 @@ class MotionsController < ApplicationController
   end
 
   def destroy
-    @motion = Motion.find(params[:id])
     redirect_to root_path if @motion.destroy
   end
 
@@ -64,5 +61,9 @@ class MotionsController < ApplicationController
   def motion_params
     params.require(:motion).permit(:weight, :training1, :training2, :training3, :training4, :training5, :count1, :count2, :count3, :count4,
                                    :count5, :memo).merge(user_id: current_user.id)
+  end
+
+  def set_motion
+    @motion = Motion.find(params[:id])
   end
 end
