@@ -1,8 +1,9 @@
+<h1 class="center">本日の予定</h1>
 <div class="wrapper">
 <div class="taining-left">
 <% if user_signed_in? %>
 <% if current_user.motion != []%>
-<h2 class="center"><%= current_user.nickname%></h2>
+<h2 class="center"><%= current_user.nickname%>さんのトレーニング予定</h2>
 <div class="contents row">
   <div class="training-list">
 <% if current_user.motion.last.training1.present?%>
@@ -43,12 +44,15 @@
 <div class="weight-right">
   <div class="whight">
   <div class="center">
-  
+  <div class="font weight">
   <h3><%=current_user.nickname%>さんの現在の体重</h3>
-  <%= current_user.motion.last.weight %>
+  <%= current_user.motion.last.weight %>kgです
+  </div>
+  <div class="font bmidifference">
   <h3>現在の<%=current_user.nickname%>さんのBMIは<%= @bmi.round(2)%>
   <%if @bmi <= 25.00 && @bmi >= 18.50 %>
-   <h3>標準です！！この体重を維持しましょう！！(※BMIを基準にしています)</h3>
+   <h3>標準です！！この体重を維持しましょう！！</h3>
+   <h3>(※BMIを基準にしています)</h3>
  
   <% elsif @bmi <= 25.00%>
       <h3>痩せ気味です  標準まで<%= @bmidifference.round(2) %>増やしましょう!!</h3>
@@ -57,7 +61,9 @@
    <h3>肥満気味です  標準まで<%= @bmidifference.round(2) %>減らしましょう!!</h3>
   <% end%>
   </div>
+  
   <h3>BMIチエック 肥満度 標準体重の目安<h3>
+  </div>
   <table class="border bmi">
     <tbody>
     <tr>
