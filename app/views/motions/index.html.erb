@@ -1,43 +1,53 @@
+<main>
+<%if user_signed_in?%>
+<%if current_user.motion.last != nil%>
 <h1 class="center">本日の予定</h1>
+<%else%>
+<h1 class="center">本日の予定を設定してください</h1>
+<% end %>
+<% end %>
 <div class="wrapper">
-<div class="taining-left">
 <% if user_signed_in? %>
 <% if current_user.motion != []%>
-<h2 class="center"><%= current_user.nickname%>さんのトレーニング予定</h2>
-<div class="contents row">
+<div class="taining-left">
+<h2 class="center"><%= current_user.nickname%>さんの今日の予定</h2>
   <div class="training-list">
-<% if current_user.motion.last.training1.present?%>
-  <%= current_user.motion.last.training1 %>
-  <%= current_user.motion.last.count1  %>
+<% if current_user.motion.last.plans1.present?%>
+  <%= current_user.motion.last.plans1 %>
+  <%= current_user.motion.last.count1.strftime('%H:%M') %>
   </div>
 <% end %> 
-<% if current_user.motion.last.training2.present?%>
+<% if current_user.motion.last.plans2.present?%>
   <div class="training-list">
-  <%= current_user.motion.last.training2 %>
-  <%= current_user.motion.last.count2  %>
+  <%= current_user.motion.last.plans2 %>
+  <%= current_user.motion.last.count2.strftime('%H:%M')  %>
   </div> 
 <% end%>
-<% if current_user.motion.last.training3.present?%>
+<% if current_user.motion.last.plans3.present?%>
   <div class="training-list">
-  <%= current_user.motion.last.training3  %>
-  <%= current_user.motion.last.count3  %>
+  <%= current_user.motion.last.plans3  %>
+  <%= current_user.motion.last.count3.strftime('%H:%M')  %>
   </div>
 <% end %>
-<% if current_user.motion.last.training4.present?%>
+<% if current_user.motion.last.plans4.present?%>
   <div class="training-list">
-  <%= current_user.motion.last.training4  %>
-  <%= current_user.motion.last.count4%> 
+  <%= current_user.motion.last.plans4  %>
+  <%= current_user.motion.last.count4.strftime('%H:%M')%> 
   </div>
 <% end %>
- <% if current_user.motion.last.training5.present?%> 
+ <% if current_user.motion.last.plans5.present?%> 
   <div class="training-list">
-  <%= current_user.motion.last.training5  %>
-  <%= current_user.motion.last.count5  %>  
+  <%= current_user.motion.last.plans5  %>
+  <%= current_user.motion.last.count5.strftime('%H:%M')  %>  
   </div>
+<% end %>
 
-<% end %>
-
+<h2 class="center">メモ<h2>
+<div class="memo">
+<%= current_user.motion.last.memo%>
 </div>
+
+
 </div>
 
 
@@ -60,9 +70,10 @@
   <% else %>
    <h3>肥満気味です  標準まで<%= @bmidifference.round(2) %>減らしましょう!!</h3>
   <% end%>
-  </div>
+ 
   
   <h3>BMIチエック 肥満度 標準体重の目安<h3>
+   </div>
   </div>
   <table class="border bmi">
     <tbody>
@@ -97,9 +108,16 @@
     </tbody>
   </table>
   <% end %>
+  <%if current_user.motion.last != nil%>
+  <div class="center">
+ <%= link_to "編集", edit_motion_path(@motion.id),class:"btn--white btn"%>
+ <%= link_to "削除", motion_path(@motion.id), method: :delete, class:"btn--white btn" %>
+ </div>
+<% end %>
 </div>
 </div>
 </div>
+
 <%  if user_signed_in? && @motion%>
 <% current_user.motion.each_with_index do |motion, index|%>
 <div class="btn">
@@ -109,6 +127,7 @@
 <% end %>
 </div>
 <% end %>
+</main>
 
 
 
