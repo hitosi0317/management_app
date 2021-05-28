@@ -1,18 +1,3 @@
-class MotionsController < ApplicationController
-<<<<<<< Updated upstream
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :show, :destroy]
-  before_action :move_to_index, except: [:index, :show, :new, :create,:destroy]
-  before_action :set_motion, only: [:edit, :show, :destroy, :update]
-  def index
-    
-    @motions = Motion.all if user_signed_in?
-    @motion = Motion.last
-    @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
-=======
-<<<<<<< Updated upstream
-  def index
-    @motion = Motion.all if user_signed_in?
-=======
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :show, :destroy]
   before_action :move_to_index, except: [:index, :show, :new, :edit, :create, :destroy]
   before_action :set_motion, only: [:edit, :show, :destroy, :update]
@@ -28,22 +13,6 @@ class MotionsController < ApplicationController
                          18.5 - @bmi
                        end
     end
->>>>>>> Stashed changes
-  end
-  # @items = Item.all
-
-  # @item.each do |item|
-  #   if item.user_id == current_user.id
-  #     ~~~
-  #   end
-  # end
->>>>>>> Stashed changes
-
-    @bmidifference = if 25 <= @bmi
-                       25.00 - @bmi
-                     else
-                       18.5 - @bmi
-                     end
   end
 
   def new
@@ -64,7 +33,7 @@ class MotionsController < ApplicationController
   end
 
   def show
-<<<<<<< Updated upstream
+    
       @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
 
       @bmidifference = if 25 <= @bmi
@@ -73,30 +42,7 @@ class MotionsController < ApplicationController
                          18.5 - @bmi
                        end
 
-=======
-<<<<<<< Updated upstream
-    if user_signed_in?
-      @motion = Motion.find(params[:id])
-      if @motion.present?
-        @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
 
-        @bmidifference = if 25 <= @bmi
-                           25.00 - @bmi
-                         else
-                           18.5 - @bmi
-                         end
-      end
-    end
-=======
-    @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
-
-    @bmidifference = if 25 <= @bmi
-                       25.00 - @bmi
-                     else
-                       18.5 - @bmi
-                     end
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   end
 
   def update
