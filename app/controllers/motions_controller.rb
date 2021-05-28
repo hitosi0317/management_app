@@ -1,3 +1,4 @@
+class MotionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :show, :destroy]
   before_action :move_to_index, except: [:index, :show, :new, :edit, :create, :destroy]
   before_action :set_motion, only: [:edit, :show, :destroy, :update]
