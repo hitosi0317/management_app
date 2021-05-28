@@ -1,4 +1,5 @@
 class MotionsController < ApplicationController
+<<<<<<< Updated upstream
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :show, :destroy]
   before_action :move_to_index, except: [:index, :show, :new, :create,:destroy]
   before_action :set_motion, only: [:edit, :show, :destroy, :update]
@@ -7,6 +8,36 @@ class MotionsController < ApplicationController
     @motions = Motion.all if user_signed_in?
     @motion = Motion.last
     @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
+=======
+<<<<<<< Updated upstream
+  def index
+    @motion = Motion.all if user_signed_in?
+=======
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :show, :destroy]
+  before_action :move_to_index, except: [:index, :show, :new, :edit, :create, :destroy]
+  before_action :set_motion, only: [:edit, :show, :destroy, :update]
+  def index
+    @motions = Motion.all if user_signed_in?
+    @motion = Motion.last
+    unless @motion.nil?
+      @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
+
+      @bmidifference = if 25 <= @bmi
+                         25.00 - @bmi
+                       else
+                         18.5 - @bmi
+                       end
+    end
+>>>>>>> Stashed changes
+  end
+  # @items = Item.all
+
+  # @item.each do |item|
+  #   if item.user_id == current_user.id
+  #     ~~~
+  #   end
+  # end
+>>>>>>> Stashed changes
 
     @bmidifference = if 25 <= @bmi
                        25.00 - @bmi
@@ -33,6 +64,7 @@ class MotionsController < ApplicationController
   end
 
   def show
+<<<<<<< Updated upstream
       @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
 
       @bmidifference = if 25 <= @bmi
@@ -41,6 +73,30 @@ class MotionsController < ApplicationController
                          18.5 - @bmi
                        end
 
+=======
+<<<<<<< Updated upstream
+    if user_signed_in?
+      @motion = Motion.find(params[:id])
+      if @motion.present?
+        @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
+
+        @bmidifference = if 25 <= @bmi
+                           25.00 - @bmi
+                         else
+                           18.5 - @bmi
+                         end
+      end
+    end
+=======
+    @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
+
+    @bmidifference = if 25 <= @bmi
+                       25.00 - @bmi
+                     else
+                       18.5 - @bmi
+                     end
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   end
 
   def update
@@ -59,7 +115,7 @@ class MotionsController < ApplicationController
   private
 
   def motion_params
-    params.require(:motion).permit(:weight, :training1, :training2, :training3, :training4, :training5, :count1, :count2, :count3, :count4,
+    params.require(:motion).permit(:weight, :plans1, :plans2, :plans3, :plans4, :plans5, :count1, :count2, :count3, :count4,
                                    :count5, :memo).merge(user_id: current_user.id)
   end
 

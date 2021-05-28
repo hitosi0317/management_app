@@ -1,19 +1,20 @@
 class CreateMotions < ActiveRecord::Migration[6.0]
   def change
     create_table :motions do |t|
-      t.float    :weight,    null: false
-      t.string   :training1, null: false
-      t.string   :training2 
-      t.string   :training3
-      t.string   :training4
-      t.string   :training5
-      t.integer  :count1,  null: false
-      t.integer  :count2
-      t.integer  :count3
-      t.integer  :count4
-      t.integer  :count5
-      t.text     :memo     
+      t.float    :weight,   null: false
+      t.string   :plans1,   null: false
+      t.string   :plans2 
+      t.string   :plans3
+      t.string   :plans4
+      t.string   :plans5
+      t.time      :count1,  null: false
+      t.time      :count2
+      t.time      :count3
+      t.time      :count4
+      t.time      :count5
+      t.text  :memo     
       t.references :user,  foreign_key: true
+     
       t.timestamps
     end
   end
