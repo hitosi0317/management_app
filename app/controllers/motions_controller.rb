@@ -1,6 +1,6 @@
 class MotionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :show, :destroy]
-  before_action :move_to_index, except: [:index, :show, :new, :edit, :create, :destroy]
+  before_action :move_to_index, except: [:index, :show, :new, :edit, :create, :destroy, :update]
   before_action :set_motion, only: [:edit, :show, :destroy, :update]
   def index
     @motions = Motion.all if user_signed_in?
