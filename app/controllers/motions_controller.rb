@@ -1,6 +1,6 @@
 class MotionsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :show, :destroy]
-  before_action :move_to_index, except: [:index, :show, :new, :edit, :create, :destroy, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :show, :destroy, :checked]
+  before_action :move_to_index, except: [:index, :show, :new, :edit, :update, :create, :destroy, :checked]
   before_action :set_motion, only: [:edit, :show, :destroy, :update]
   def index
     @motions = Motion.all if user_signed_in?
@@ -59,6 +59,19 @@ class MotionsController < ApplicationController
     redirect_to root_path if @motion.destroy
   end
 
+  def checked
+    motion = Motion.find(params[:id])
+    if motion.checked 
+      motion.update(checked: false)
+    else
+      motion.update(checked: true)
+    end
+
+    item = Motion.find(params[:id])
+    render json: { plan: item }
+  end
+
+  
   private
 
   def motion_params

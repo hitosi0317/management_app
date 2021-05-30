@@ -1,26 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>予定表</h1>
-
-<table class="table table-sm table-striped">
-  <thead>
-    <tr>
-      <th scope="co1">予定一覧</th>
-      <th scope="co1">予定日時</th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <%if user_signed_in? %>
-    <% current_user.meetings.each do |meeting| %>
-      <tr>
-        <td><%= meeting.name %></td>
-        <td><%= meeting.start_time%></td>
-      </tr>
-    <% end %>
-  <% end %>
-  </tbody>
-</table>
+<%= link_to '新規予定作成', new_meeting_path, class: "btn btn-sm btn-outline-secondary"  %>
 
 <%= month_calendar events: @meetings do |date, meetings| %>
   <%= date %>
@@ -35,4 +15,4 @@
   <% end %>
 <% end %>
 
-<%= link_to '新規予定作成', new_meeting_path, class: "btn btn-sm btn-outline-secondary"  %>
+

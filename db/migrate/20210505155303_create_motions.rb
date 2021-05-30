@@ -12,7 +12,8 @@ class CreateMotions < ActiveRecord::Migration[6.0]
       t.time      :count3
       t.time      :count4
       t.time      :count5
-      t.text  :memo     
+      t.text  :memo  
+      t.boolean  :checked   
       t.references :user,  foreign_key: true
      
       t.timestamps

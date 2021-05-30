@@ -1,0 +1,60 @@
+
+
+.contents{
+  width: 85%;
+  padding-top: 30px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: flex;
+}
+.weight-box {
+  margin-top: 40px;
+}
+.save-width1 {
+  width: 300px;
+  height: 50px;
+  font-size: 50px;
+
+}
+
+.save-width2 {
+  width: 280px;
+  height: 50px;
+  font-size: 50px;
+
+}
+
+.save-width3 {
+  width: 35vw;
+  height: 350px;
+  font-size: 30px;
+}
+
+.memo-box {
+  margin: 0 auto;
+}
+
+.memo-text {
+  margin-bottom: 15px;
+}
+.create-btn  {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-size: 25px;
+  width: 500px;
+  height: 70px;
+}
+.btn--white {
+  color: #000;
+  background-color: white;
+  border-bottom: 3px solid black;
+}
+
+.btn--white:hover {
+  margin-top: 3px;
+  color: white;
+  background: black;
+  border-bottom: 2px solid white;
+}
+
