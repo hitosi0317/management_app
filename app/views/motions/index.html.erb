@@ -1,13 +1,12 @@
 <main>
-<%if user_signed_in?%>
-<%if current_user.motion.last != nil%>
+<%if user_signed_in? %>
+<% if @motion != nil%>
+<%if current_user.motion.last.created_at.strftime('%d') == @now.wday.to_s%>
+
+
+<% else %>
 <h1 class="center">本日の予定</h1>
-<%else%>
-<h1 class="center">本日の予定を設定してください</h1>
-<% end %>
-<% end %>
 <div class="wrapper">
-<% if user_signed_in? %>
 <% if current_user.motion != []%>
 <div class="plans-left">
 <h2 class="center"><%= current_user.nickname%>さんの今日の予定</h2>
@@ -117,6 +116,13 @@
 </div>
 </div>
 </div>
+<% end%>
+<% else %>
+<div class="btn btn--white btn--cubic">
+<h2><%= link_to '今日の予定を設定する', new_motion_path, class: "the-goal"%><h2>
+</div>
+<% end %>
+
 
 <%  if user_signed_in? && @motion%>
 <% current_user.motion.each_with_index do |motion, index|%>
