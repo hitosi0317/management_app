@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_05_20_180635) do
     t.time "count4"
     t.time "count5"
     t.text "memo"
+    t.boolean "checked"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
