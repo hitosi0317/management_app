@@ -13,14 +13,14 @@
 }
 
 
-.taining-left {
+.plans-left {
   height: 250px;
   width: 50%;
   font-size: 24px;
   display: block;
 }
 
-.training-list {
+.plan {
   border: 1px solid;
   height: 30px;
   padding-bottom: 20px;
@@ -64,7 +64,7 @@ line-height: 30px;
 
 }
 
-.border th, .border td  {
+.bordar th, .border td  {
   border: 1px solid black;
 }
 .btn {
@@ -96,6 +96,15 @@ button.btn {
   color: #212529;
   border-radius: 0.5rem;
 }
+
+div[data-check="true"] {
+  
+  background-image: url(watermark.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
 
 
 
