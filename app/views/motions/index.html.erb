@@ -1,33 +1,136 @@
+<main>
+<%if user_signed_in?%>
+<%if current_user.motion.last != nil%>
+<h1 class="center">本日の予定</h1>
+<%else%>
+<h1 class="center">本日の予定を設定してください</h1>
+<% end %>
+<% end %>
 <div class="wrapper">
+<% if user_signed_in? %>
+<% if current_user.motion != []%>
+<div class="plans-left">
+<h2 class="center"><%= current_user.nickname%>さんの今日の予定</h2>
+  <div class="plan" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+<% if current_user.motion.last.plans1.present?%>
+  <%= current_user.motion.last.plans1 %>
+  <%= current_user.motion.last.count1.strftime('%H:%M') %>
+  </div>
+<% end %> 
+<% if current_user.motion.last.plans2.present?%>
+  <div class="plan" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+  <%= current_user.motion.last.plans2 %>
+  <%= current_user.motion.last.count2.strftime('%H:%M')  %>
+  </div> 
+<% end%>
+<% if current_user.motion.last.plans3.present?%>
+  <div class="plan" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+  <%= current_user.motion.last.plans3  %>
+  <%= current_user.motion.last.count3.strftime('%H:%M')  %>
+  </div>
+<% end %>
+<% if current_user.motion.last.plans4.present?%>
+  <div class="plan" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+  <%= current_user.motion.last.plans4  %>
+  <%= current_user.motion.last.count4.strftime('%H:%M')%> 
+  </div>
+<% end %>
+ <% if current_user.motion.last.plans5.present?%> 
+  <div class="plan" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+  <%= current_user.motion.last.plans5  %>
+  <%= current_user.motion.last.count5.strftime('%H:%M')  %>  
+  </div>
+<% end %>
 
-<div class="training today">
-  <h2 class="training text">本日のトレーニング項目です</h2>
+<h2 class="center">メモ<h2>
+<div class="memo">
+<%= current_user.motion.last.memo%>
 </div>
-<% if @motion == nil%>
- <% else %>
-<div class="contents row">
-  <div class="training-list">
-  <%= @motion.training1 %>
-  <%= @motion.count1  %>
-  </div> 
-  <div class="training-list">
-  <%= @motion.training2  %>
-  <%= @motion.count2  %>
-  </div> 
-  <div class="training-list">
-  <%= @motion.training3  %>
-  <%= @motion.count3  %>
+
+
+</div>
+
+
+<div class="weight-right">
+  <div class="whight">
+  <div class="center">
+  <div class="font weight">
+  <h3><%=current_user.nickname%>さんの現在の体重</h3>
+  <%= current_user.motion.last.weight %>kgです
   </div>
-  <div class="training-list">
-  <%= @motion.training4  %>
-  <%= @motion.count4  %> 
+  <div class="font bmidifference">
+  <h3>現在の<%=current_user.nickname%>さんのBMIは<%= @bmi.round(2)%>
+  <%if @bmi <= 25.00 && @bmi >= 18.50 %>
+   <h3>標準です！！この体重を維持しましょう！！</h3>
+   <h3>(※BMIを基準にしています)</h3>
+ 
+  <% elsif @bmi <= 25.00%>
+      <h3>痩せ気味です  標準まで<%= @bmidifference.round(2) %>増やしましょう!!</h3>
+
+  <% else %>
+   <h3>肥満気味です  標準まで<%= @bmidifference.round(2) %>減らしましょう!!</h3>
+  <% end%>
+ 
+  
+  <h3>BMIチエック 肥満度 標準体重の目安<h3>
+   </div>
   </div>
-  <div class="training-list">
-  <%= @motion.training5  %>
-  <%= @motion.count5  %>  
-  </div>
+  <table class="border bmi">
+    <tbody>
+    <tr>
+      <th>BMI</th>
+      <th>肥満度判定(目安)</th>
+    </tr>
+    <tr>
+      <td>18.5未満</td>
+      <td>低体重 (やせ)</td>
+    </tr>
+    <tr>
+      <td>18.5~25未満</td>
+      <td>普通体重</td>
+    </tr>
+    <tr>
+      <td>25~30未満</td>
+      <td>肥満 (1度)</td>
+    </tr>
+    <tr>
+      <td>30~35未満</td>
+      <td>肥満 (2度)</td>
+    </tr>
+    <tr>
+      <td>35~40未満</td>
+      <td>肥満 (3度)</td>
+    </tr>
+    <tr>
+      <td>40以上</td>
+      <td>肥満 (4度)</td>
+    </tr>
+    </tbody>
+  </table>
+  <% end %>
+  <%if current_user.motion.last != nil%>
+  <div class="center">
+ <%= link_to "編集", edit_motion_path(@motion.id),class:"btn--white btn"%>
+ <%= link_to "削除", motion_path(@motion.id), method: :delete, class:"btn--white btn" %>
+ </div>
+<% end %>
+</div>
+</div>
+</div>
+
+<%  if user_signed_in? && @motion%>
+<% current_user.motion.each_with_index do |motion, index|%>
+<div class="btn">
+<li><%= link_to index, motion_path(motion.id), class: "show btn"%></li> 
+</div>
+<% end%>
+<% end %>
 </div>
 <% end %>
- <%= link_to "編集する", edit_motion_path(@motion.id),class:"motion-btn"%>
- <%= link_to "削除", motion_path(@motion.id), method: :delete, class:"motion-btn" %>
-</div>
+</main>
+
+
+
+
+ 
+

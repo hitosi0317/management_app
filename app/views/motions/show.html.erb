@@ -1,0 +1,93 @@
+<div class="wrapper">
+
+<div class="training today">
+  <h2 class="training text">本日のトレーニング項目です</h2>
+</div>
+<% if @motion == nil%>
+ <% else %>
+<div class="contents row">
+  <div class="training-list">
+  <%= @motion.plans1 %>
+  <%= @motion.count1  %>
+  </div> 
+<% if @motion.plans2.present?%>
+  <div class="training-list">
+  <%= @motion.plans2  %>
+  <%= @motion.count2  %>
+  </div> 
+<% end%>
+<% if @motion.plans3.present?%>
+  <div class="training-list">
+  <%= @motion.plans3  %>
+  <%= @motion.count3  %>
+  </div>
+<% end %>
+<% if @motion.plans4.present?%>
+  <div class="training-list">
+  <%= @motion.plans4  %>
+  <%= @motion.count4  %> 
+  </div>
+<% end %>
+ <% if @motion.plans5.present?%> 
+  <div class="training-list">
+  <%= @motion.plans5  %>
+  <%= @motion.count5  %>  
+  </div>
+</div>
+<% end %>
+<div class="whight-right">
+  <div class="whight">
+  <h3><%=@motion.user.nickname%>さんの現在の体重</h3>
+  <%= @motion.weight %>
+  <h3>BMIチエック 肥満度 標準体重の目安<h3>
+  <table class="border">
+    <tbody>
+    <tr>
+      <th>BMI</th>
+      <th>肥満度判定(目安)</th>
+    </tr>
+    <tr>
+      <td>18.5未満</td>
+      <td>低体重 (やせ)</td>
+    </tr>
+    <tr>
+      <td>18.5~25未満</td>
+      <td>普通体重</td>
+    </tr>
+    <tr>
+      <td>25~30未満</td>
+      <td>肥満 (1度)</td>
+    </tr>
+    <tr>
+      <td>30~35未満</td>
+      <td>肥満 (2度)</td>
+    </tr>
+    <tr>
+      <td>35~40未満</td>
+      <td>肥満 (3度)</td>
+    </tr>
+    <tr>
+      <td>40以上</td>
+      <td>肥満 (4度)</td>
+    </tr>
+    </tbody>
+  </table>
+  <h3>現在の<%=@motion.user.nickname%>さんのBMIは<%= @bmi.round(2)%>
+  <%if @bmi <= 25.00 && @bmi >= 18.50 %>
+   <h3>標準です</h3>
+ 
+  <% elsif @bmi <= 25.00%>
+      <h3>痩せ気味です  標準まで<%= @bmidifference.round(2) %>増やしましょう</h3>
+
+  <% else %>
+   <h3>肥満気味です  標準まで<%= @bmidifference.round(2) %>減らしましょう</h3>
+
+ 
+  <% end %>
+  
+</div>
+
+<% end %>
+
+
+</div>

@@ -11,19 +11,20 @@
 
   <body>
   <header class="top-page-header">
-      <div class="header__bar row">
-          <%= link_to "Management", "/" %>
+      <div class="header__bar">
+          <h1><%= link_to "Management", "/", class: "title-logo"%></h1>
       </div>
           <div class= nav>
           <div class="header-left">
           <% if user_signed_in?%>
-          <%= link_to '今日の目標を設定する', "/motions/new"%>
+       
         
           <% end%>
           </div>
        <ul class='lists-right'>
       <% if user_signed_in?%>
-      <li><%= link_to current_user.nickname, "#", class: "user-nickname"%></li> 
+      <li><%= link_to '今日の目標を設定する', new_motion_path, class: "the-goal"%></li>
+      <li><%= link_to "カレンダー", meetings_path, class: "user-nickname"%></li> 
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%></li>
       <% else %>
       <li><%= link_to 'ログイン',  new_user_session_path, class: "login" %></li>

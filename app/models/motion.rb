@@ -1,17 +1,15 @@
 class Motion < ApplicationRecord
   belongs_to :user
-  validates :training1, presence: true
-  validates :count1, numericality: true
-  
-  validates :count2, :count3,:count4,:count5,numericality: true, unless: :count?
+
+  validates :plans1, presence: true
+  validates :weight, numericality: true
+
+  validates :count2, :count3, :count4, :count5, presence: true, unless: :count?
 
   def count?
-    count2.blank?
-    count3.blank?
-    count4.blank?
-    count5.blank?
+    plans2.blank?
+    plans3.blank?
+    plans4.blank?
+    plans5.blank?
   end
-
-
-
 end

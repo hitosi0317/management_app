@@ -10,19 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_155303) do
+ActiveRecord::Schema.define(version: 2021_05_20_180635) do
+
+  create_table "meetings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_meetings_on_user_id"
+  end
 
   create_table "motions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "training1", null: false
-    t.string "training2"
-    t.string "training3"
-    t.string "training4"
-    t.string "training5"
-    t.integer "count1", null: false
-    t.integer "count2"
-    t.integer "count3"
-    t.integer "count4"
-    t.integer "count5"
+    t.float "weight", null: false
+    t.string "plans1", null: false
+    t.string "plans2"
+    t.string "plans3"
+    t.string "plans4"
+    t.string "plans5"
+    t.time "count1", null: false
+    t.time "count2"
+    t.time "count3"
+    t.time "count4"
+    t.time "count5"
+    t.text "memo"
+    t.boolean "checked"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -30,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_155303) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.float "height", null: false
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -42,5 +55,6 @@ ActiveRecord::Schema.define(version: 2021_05_05_155303) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "meetings", "users"
   add_foreign_key "motions", "users"
 end
