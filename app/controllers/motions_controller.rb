@@ -5,6 +5,7 @@ class MotionsController < ApplicationController
   def index
     @motions = Motion.all if user_signed_in?
     @motion = Motion.last
+    @now = Time.new
     unless @motion.nil?
       @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
 
