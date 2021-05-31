@@ -6,6 +6,7 @@ class MotionsController < ApplicationController
     @motions = Motion.all if user_signed_in?
     @motion = Motion.last
     @now = Time.new
+    @week = %w[Sun Mun Tue Wed Thu Fri Sat]
     unless @motion.nil?
       @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
 
@@ -35,16 +36,13 @@ class MotionsController < ApplicationController
   end
 
   def show
-    
-      @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
+    @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
 
-      @bmidifference = if 25 <= @bmi
-                         25.00 - @bmi
-                       else
-                         18.5 - @bmi
-                       end
-
-
+    @bmidifference = if 25 <= @bmi
+                       25.00 - @bmi
+                     else
+                       18.5 - @bmi
+                     end
   end
 
   def update
@@ -62,7 +60,7 @@ class MotionsController < ApplicationController
 
   def checked
     motion = Motion.find(params[:id])
-    if motion.checked 
+    if motion.checked
       motion.update(checked: false)
     else
       motion.update(checked: true)
@@ -72,7 +70,6 @@ class MotionsController < ApplicationController
     render json: { plan: item }
   end
 
-  
   private
 
   def motion_params

@@ -1,13 +1,10 @@
 <main>
 <%if user_signed_in? %>
 <% if @motion != nil%>
-<%if current_user.motion.last.created_at.strftime('%d') == @now.wday.to_s%>
-
-
-<% else %>
+<% if current_user.motion != []%>
+<%if current_user.motion.last.created_at.strftime('%a') ==  @week[@now.wday] %>
 <h1 class="center">本日の予定</h1>
 <div class="wrapper">
-<% if current_user.motion != []%>
 <div class="plans-left">
 <h2 class="center"><%= current_user.nickname%>さんの今日の予定</h2>
   <div class="plan" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
@@ -40,16 +37,11 @@
   <%= current_user.motion.last.count5.strftime('%H:%M')  %>  
   </div>
 <% end %>
-
 <h2 class="center">メモ<h2>
 <div class="memo">
 <%= current_user.motion.last.memo%>
 </div>
-
-
 </div>
-
-
 <div class="weight-right">
   <div class="whight">
   <div class="center">
@@ -62,15 +54,12 @@
   <%if @bmi <= 25.00 && @bmi >= 18.50 %>
    <h3>標準です！！この体重を維持しましょう！！</h3>
    <h3>(※BMIを基準にしています)</h3>
- 
   <% elsif @bmi <= 25.00%>
       <h3>痩せ気味です  標準まで<%= @bmidifference.round(2) %>増やしましょう!!</h3>
 
   <% else %>
    <h3>肥満気味です  標準まで<%= @bmidifference.round(2) %>減らしましょう!!</h3>
   <% end%>
- 
-  
   <h3>BMIチエック 肥満度 標準体重の目安<h3>
    </div>
   </div>
@@ -106,24 +95,21 @@
     </tr>
     </tbody>
   </table>
-  <% end %>
-  <%if current_user.motion.last != nil%>
-  <div class="center">
+   <div class="center">
  <%= link_to "編集", edit_motion_path(@motion.id),class:"btn--white btn"%>
  <%= link_to "削除", motion_path(@motion.id), method: :delete, class:"btn--white btn" %>
  </div>
-<% end %>
+ <% end %>
+</div>
 </div>
 </div>
 </div>
 <% end%>
-<% else %>
+<% else%>
 <div class="btn btn--white btn--cubic">
 <h2><%= link_to '今日の予定を設定する', new_motion_path, class: "the-goal"%><h2>
 </div>
-<% end %>
-
-
+<% end%>
 <%  if user_signed_in? && @motion%>
 <% current_user.motion.each_with_index do |motion, index|%>
 <div class="btn">
