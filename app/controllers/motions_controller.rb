@@ -6,7 +6,6 @@ class MotionsController < ApplicationController
     @motions = Motion.all if user_signed_in?
     @motion = Motion.last
     @now = Time.new
-    @week = %w[Sun Mun Tue Wed Thu Fri Sat]
     unless @motion.nil?
       @bmi = @motion.weight / @motion.user.height / @motion.user.height * 10_000
 
