@@ -104,12 +104,16 @@
 </div>
 </div>
 </div>
-<% end%>
 <% else%>
-<div class="btn btn--white btn--cubic">
+<div class=" btn btn--white btn--cubic ">
 <h2><%= link_to '今日の予定を設定する', new_motion_path, class: "the-goal"%><h2>
 </div>
 <% end%>
+
+
+
+<% end%>
+
 <%  if user_signed_in? && @motion%>
 <% current_user.motion.each_with_index do |motion, index|%>
 <div class="btn">
