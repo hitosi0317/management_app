@@ -1,7 +1,7 @@
 <main>
 <%if user_signed_in? %>
 <% if  @motion != nil && current_user.motion != [] %>
-
+<%if current_user.motion.last.created_at.strftime("%Y%m%d")  == @now.strftime("%Y%m%d")  %>
 <h1 class="center">本日の予定</h1>
 <div class="wrapper">
 <div class="plans-left">
@@ -98,7 +98,7 @@
  <%= link_to "編集", edit_motion_path(@motion.id),class:"btn--white btn"%>
  <%= link_to "削除", motion_path(@motion.id), method: :delete, class:"btn--white btn" %>
  </div>
-
+<% end %>
 </div>
 </div>
 </div>
