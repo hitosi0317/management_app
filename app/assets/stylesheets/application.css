@@ -13,9 +13,6 @@
  *= require_tree .
  *= require_self
  */
-main{
-  height: 600px;
-}
 
  header {
    

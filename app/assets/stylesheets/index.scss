@@ -5,10 +5,15 @@
   display: flex;
   width: 1200px;
   margin: 0 auto;
-  height: 700px;
+}
+
+.plan-btn {
+  margin: 0 auto;
+  display: block;
 }
 
 .the-goal {
+  margin: 0 auto;
   display: block;
   text-align: center;
 }
@@ -35,9 +40,6 @@
 .weight-right {
 width: 50vw;
 line-height: 30px;
-}
-
-.weight {
 }
 
 .bmi {
@@ -109,6 +111,18 @@ div[data-check="true"] {
   background-repeat: no-repeat;
   background-position: right;
 }
+
+.main-chart {
+  width: 1200px;
+  margin: 0 auto;
+  border: solid 1px black;
+}
+
+.plan-show {
+  border: solid 1px pink;
+}
+
+
 
 
 
