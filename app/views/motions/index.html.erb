@@ -112,7 +112,7 @@
 
 <div class="main-chart">
 <h2 class="chart center">過去の体重の履歴</h2>
-<%= line_chart Motion.group_by_day(:created_at).sum(:weight) %>
+<%= line_chart current_user.motion.group_by_day(:created_at).sum(:weight) %>
 </div>
 </div class="plan-show">
 <% current_user.motion.each_with_index do |motion, index|%>
