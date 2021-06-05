@@ -2,7 +2,7 @@
 <%if user_signed_in? %>
 <% if  @motion != nil && current_user.motion != [] && current_user.motion.last.created_at.strftime("%Y%m%d")  == @now.strftime("%Y%m%d")%>
 
-<h1 class="center">本日の予定</h1>
+<h1 class="text-center">本日の予定</h1>
 <div class="wrapper">
 <div class="plans-left">
 <h2 class="center"><%= current_user.nickname%>さんの今日の予定</h2>
@@ -103,15 +103,16 @@
 </div>
 </div>
 <% else%>
-<div class="plan-btn btn btn--white btn--cubic">
-<h2><%= link_to '今日の予定を設定する', new_motion_path, class: "the-goal"%><h2>
+<div class="container">
+<div class="text-center  inline">
+<h2><%= link_to '今日の予定を設定する', new_motion_path, class: "border"%><h2>
 </div>
 <% end%>
 
 
 <div class="main-chart">
-<h2 class="chart center">過去の体重の履歴</h2>
-<%= line_chart Motion.group_by_day(:created_at).sum(:weight) %>
+<h2 class="text-center">過去の体重の履歴</h2>
+<%= line_chart current_user.motion.group_by_day(:created_at).sum(:weight) %>
 </div>
 </div class="plan-show">
 <% current_user.motion.each_with_index do |motion, index|%>

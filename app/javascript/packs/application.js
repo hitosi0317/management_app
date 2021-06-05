@@ -9,19 +9,12 @@ require("@rails/activestorage").start()
 require("channels")
 require("./checked")
 import "chartkick/chart.js"
-
-<<<<<<< Updated upstream
-=======
 // 作成したファイルをwebpackerに読み込ませます。
 import "../stylesheets/application"
 import "../js/hoge.js"
-
-// - 検証用 -
 // app/javascript/images/フォルダー内の001.jpeg画像を
 // webpackerに読み込ませます。
 const images = require.context('images', true)
-
->>>>>>> Stashed changes
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.

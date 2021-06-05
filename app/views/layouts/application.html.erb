@@ -5,33 +5,36 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <header class="top-page-header">
-      <div class="header__bar">
-          <h1><%= link_to "Management", "/", class: "title-logo"%></h1>
-      </div>
-          <div class= nav>
-          <div class="header-left">
-          <% if user_signed_in?%>
-       
-        
-          <% end%>
-          </div>
-       <ul class='lists-right'>
+  <header>
+  
+  <div class="container">
+      <div class="d-flex justify-content-between mt-4 border-bottom">
+      <h1><%= link_to "Management", "/", class: ""%></h1>
+      
+
       <% if user_signed_in?%>
-      <li><%= link_to "カレンダー", meetings_path, class: "user-nickname"%></li> 
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%></li>
-      <% else %>
-      <li><%= link_to 'ログイン',  new_user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録',  new_user_registration_path, class: "sign-up" %></li>
-      <% end %>
-    </ul>
-      </div>
     
+  
+       <ul class="list-group list-group-horizontal list-unstyled mt-3">
+      <li><%= link_to "カレンダー", meetings_path, class: "me-5"%></li> 
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
+      </ul>
+       
+      <% else %>
+    
+        <ul class="list-group list-group-horizontal list-unstyled mt-3">
+      <li><%= link_to 'ログイン',  new_user_session_path, class: "me-5"%></li>
+      <li><%= link_to '新規登録',  new_user_registration_path  %></li>
+      </ul>
+    
+      <% end %>
+    </div>
     </header>
     <%= yield %>
     <footer>
