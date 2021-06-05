@@ -14,7 +14,6 @@ import "../stylesheets/application"
 import "../js/hoge.js"
 // app/javascript/images/フォルダー内の001.jpeg画像を
 // webpackerに読み込ませます。
-const images = require.context('images', true)
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
