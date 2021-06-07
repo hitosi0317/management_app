@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        height: 身長
+      motion:
+        weight: 体重
+        plans1: 予定 
+        count1: 時刻
