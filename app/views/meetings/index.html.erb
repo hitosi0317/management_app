@@ -9,7 +9,8 @@
   <% meetings.each do |meeting|%>
   <% if meeting.user_id == current_user.id%>
     <div>
-      <%= meeting.name%>
+    <%= link_to meeting.name, meeting_path(meeting.id)%> 
+     
     </div>
     <% end%>
   <% end %>

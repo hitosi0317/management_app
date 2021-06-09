@@ -9,6 +9,6 @@
   <strong>予定日時:</strong>
   <%= @meeting.start_time.strftime("%Y") %>年<%= @meeting.start_time.strftime("%m") %>月<%= @meeting.start_time.strftime("%d") %>日
 </p>
-
+<%= link_to '削除', meeting_path(@meeting),method: :delete%> 
 <%= link_to '編集', edit_meeting_path(@meeting) %> 
 <%= link_to 'カレンダーページへ戻る', meetings_path %>
