@@ -4,7 +4,7 @@
 <%= link_to '新規予定作成', new_meeting_path, class: "btn btn-sm btn-outline-secondary"  %>
 
 <%= month_calendar events: @meetings do |date, meetings| %>
-  <%= date %>
+  <%= date.strftime("%d") %><span>日</span>
   <%if user_signed_in?%>
   <% meetings.each do |meeting|%>
   <% if meeting.user_id == current_user.id%>
