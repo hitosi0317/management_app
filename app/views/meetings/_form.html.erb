@@ -10,18 +10,24 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name, "予定"%>
-    <%= form.text_field :name %>
+  <div class="container">
+  <div class="mx-auto my-3 text-center border">
+  <div class="my-5">
+    <%= form.label :name, "予定", class: "h2 d-block"%>
+    <%= form.text_field :name, class: " mx-auto w-50"%>
   </div>
 
-  <div class="field">
-    <%= form.label :start_time, "予定日時" %>
-    <%= form.datetime_select :start_time %>
+  <div class="form-group my-5">
+    <%= form.label :start_time, "予定日" ,class: "h2 d-block"%>
+    
+     
+    <%= form.date_select :start_time, {use_month_numbers: true}, class: "form-control my-3 w-50 d-block mx-auto  px-2"%>
+    
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="my-5 h2">
+    <%= form.submit class:"p-3" %>
+  </div>
+  </div>
   </div>
 <% end %>
