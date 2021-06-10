@@ -5,8 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%# <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
+   
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <%# <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -15,22 +16,22 @@
   
   <div class="container">
       <div class="d-flex justify-content-between my-4 border-bottom" >
-      <h1><%= link_to "Management", "/", style:"text-decoration: none;"%></h1>
+      <h1><%= link_to "Management", "/"%></h1>
       
 
       <% if user_signed_in?%>
     
   
        <ul class="list-group list-group-horizontal list-unstyled mt-3 h3">
-      <li><%= link_to "カレンダー", meetings_path, class: "me-5 d-block" , style: "text-decoration: none;"%></li> 
-      <li><%= link_to 'ログアウト', destroy_user_session_path,  style: "text-decoration: none;", method: :delete%></li>
+      <li><%= link_to "カレンダー", meetings_path, class: "me-5 d-block"%></li> 
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
       </ul>
        
       <% else %>
     
         <ul class="list-group list-group-horizontal list-unstyled mt-3 h3">
-      <li><%= link_to 'ログイン',  new_user_session_path, class: "me-5" , style: "text-decoration: none;"%></li>
-      <li><%= link_to '新規登録',  new_user_registration_path , style: "text-decoration: none;"  %></li>
+      <li><%= link_to 'ログイン',  new_user_session_path, class: "me-5"%></li>
+      <li><%= link_to '新規登録',  new_user_registration_path   %></li>
       </ul>
     
       <% end %>
