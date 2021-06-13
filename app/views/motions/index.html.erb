@@ -102,6 +102,7 @@
 </div>
 </div>
 </div>
+<<<<<<< Updated upstream
 <% else%>
 <div class="container">
 <div class="text-center  inline">
@@ -119,6 +120,30 @@
 <div class="btn">
 <li><%= link_to index, motion_path(motion.id), class: "show btn"%></li> 
 </div>
+=======
+<div class="mt-5">
+<h2 class="text-center">過去の体重のグラフ</h2>
+<%= line_chart current_user.motion.group_by_day(:created_at).sum(:weight) %>
+
+<h2>過去の予定一覧</h2>
+<% current_user.motion.each_with_index do |motion, index|%>
+<li><%= link_to motion.created_at.strftime("%F"), motion_path(motion.id)%></li> 
+</div>
+<% end %>
+<% else%>
+<div class="container">
+<div class="text-center  inline">
+<%= link_to '今日の予定を設定する', new_motion_path, class: "btn btn-outline-secondary"%>
+</div>
+<% end%>
+<% else%>
+<img src="watermark.jpg" alt="kkk">
+<h1>ようこそ</h1>
+<p></p>
+</div>
+</div>
+<% end %>
+>>>>>>> Stashed changes
 </div>
 <% end %>
 </div>

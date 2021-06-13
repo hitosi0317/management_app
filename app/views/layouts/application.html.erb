@@ -14,33 +14,53 @@
   <header>
   
   <div class="container">
+<<<<<<< Updated upstream
       <div class="d-flex justify-content-between mt-4 border-bottom">
       <h1><%= link_to "Management", "/", class: ""%></h1>
+=======
+      <div class="d-flex justify-content-between my-4 border-bottom">
+      <h1><%= link_to "Management", "/",style:"text-decoration: none;"%></h1>
+>>>>>>> Stashed changes
       
 
       <% if user_signed_in?%>
     
   
+<<<<<<< Updated upstream
        <ul class="list-group list-group-horizontal list-unstyled mt-3">
       <li><%= link_to "カレンダー", meetings_path, class: "me-5"%></li> 
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
+=======
+       <ul class="nav fs-4">
+      <li class="nav-item"><%= link_to "カレンダー", meetings_path, class: "nav-link"%></li> 
+      <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"%></li>
+>>>>>>> Stashed changes
       </ul>
        
       <% else %>
     
+<<<<<<< Updated upstream
         <ul class="list-group list-group-horizontal list-unstyled mt-3">
       <li><%= link_to 'ログイン',  new_user_session_path, class: "me-5"%></li>
       <li><%= link_to '新規登録',  new_user_registration_path  %></li>
+=======
+        <ul class="nav">
+      <li class="nav-item"><%= link_to 'ログイン',  new_user_session_path, class: "nav-link"%></li>
+      <li class="nav-item"><%= link_to '新規登録',  new_user_registration_path, class: "nav-link" %></li>
+>>>>>>> Stashed changes
       </ul>
     
       <% end %>
-    </div>
+   </div>
     </header>
     <%= yield %>
     <footer>
+    <div class="container">
       <p>
         Copyright ManagementApp 2021.
       </p>
+    </div>
     </footer>
+     
   </body>
 </html>
