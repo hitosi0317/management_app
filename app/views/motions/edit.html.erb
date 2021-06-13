@@ -1,46 +1,55 @@
- <h1 class="center">予定を編集してください</h1>
+ <div class="container">
+<h1 class="text-center mt-5">編集してください</h1>
 
   <%= form_with(model: @motion, local: true) do |form| %>
   <%= render 'shared/error_messages', model: form.object %>
-    <div class="weight-box center">
-    <h2 class="">現在の体重を入力してください</h2>
-    <%= form.number_field :weight, step: '0.1', min: "30",placeholder: "55", class:"save-width1 center"%><em>kg</em>
+    <div class="text-center  mx-auto mt-3">
+    <h2 class="text-center">現在の体重を入力してください</h2>
+    <%= form.number_field :weight, step: '0.1', min: "30",placeholder: "55", class:"text-center h1 border-4"%><em>kg</em>
     </div>
-    <div class="contents">
- <div class="container">
-    <h2 class="center">予定・行う時間を入力してください</h2>
-    <div class="plan-box">
-    <h2>1項目</h2>
-    <%= form.text_field :plans1, placeholder: "予定",class:"save-width2"%>
-    <%= form.time_field :count1, class:"save-width2" %>
+
+    <div class="d-flex align-content-center flex-wrap ">
+      <div class="border flex-fill m-2 p-4 text-center">
+        <h2 class="">予定・行う時間をしてください</h2>
+        <div class="px-3">
+        <h2>1項目</h2>
+        <%= form.text_field :plans1, placeholder: "予定",class:" text-center h1 w-100 border-4"%>
+        <%= form.time_field :count1, class:"text-center h1 w-100 my-2 border-4"%>
+        </div>
+
+        <div class=" px-3">
+        <h2>2項目</h2>
+        <%= form.text_field :plans2, placeholder: "予定",class:"text-center h1 w-100 border-4" %>
+        <%= form.time_field :count2, class:"text-center h1 w-100 my-2 border-4" %>
+        </div>
+
+        <div class="px-3">
+          <h2>3項目</h2>
+        <%= form.text_field :plans3, placeholder: "予定",class:"text-center h1 w-100 border-4"%>
+        <%= form.time_field :count3, class:"text-center h1 w-100  my-2 border-4" %>
+        </div>
+
+        <div class=" px-3">
+          <h2>4項目</h2>
+        <%= form.text_field :plans4, placeholder: "予定",class:"text-center h1 w-100 border-4" %>
+        <%= form.time_field :count4, class:"text-center h1 w-100 my-2 border-4" %>
+        </div>
+
+        <div class="px-3">
+          <h2>5項目</h2>
+        <%= form.text_field :plans5, placeholder: "予定",class:"text-center h1 w-100 border-4" %>
+        <%= form.time_field :count5, class:"text-center h1 w-100  my-2 border-4" %>
+        </div>  
+      </div>
+      
+        <div class="text-center flex-fill m-2 py-4 border ">
+        <h2 class="text-center pb-4">今日のメモを残せます</h2>
+        <%= form.text_area :memo, placeholder: "任意で記入できます",class:"w-75 h-50 h1 border-4"%>
+        </div>
+  
     </div>
-    <div class="plan-box">
-     <h2>2項目</h2>
-    <%= form.text_field :plans2, placeholder: "予定",class:"save-width2" %>
-    <%= form.time_field :count2, class:"save-width2" %>
+    <div class="text-center p-3  mx-auto">
+    <span><%= form.submit "決定", class:"d-block mx-auto p-3 w-50 mu-auto border-4"%></span>
     </div>
-    <div class="plan-box">
-      <h2>3項目</h2>
-    <%= form.text_field :plans3, placeholder: "予定",class:"save-width2"%>
-    <%= form.time_field :count3, class:"save-width2" %>
-    </div>
-    <div class="plan-box">
-      <h2>4項目</h2>
-    <%= form.text_field :plans4, placeholder: "予定",class:"save-width2" %>
-    <%= form.time_field :count4, class:"save-width2" %>
-    </div>
-    <div class="plan-box">
-      <h2>5項目</h2>
-    <%= form.text_field :plans5, placeholder: "予定",class:"save-width2" %>
-    <%= form.time_field :count5, class:"save-width2" %>
-    </div>
-    </div>
-    <div class="memo-box">
-    <h2 class="center memo-text">今日のメモを残せます</h2>
-    <%= form.text_area :memo, placeholder: "任意で記入できます",class:"save-width3"%>
-    </div>
-    </div>
-    <span><%= form.submit "決定", class:"create-btn btn--white btn--cubic"%></span>
   <% end %>
-  </div>
 </div>

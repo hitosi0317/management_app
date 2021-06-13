@@ -1,52 +1,52 @@
 <main>
+<div class="container text-center ">
 <%if user_signed_in? %>
 <% if  @motion != nil && current_user.motion != [] && current_user.motion.last.created_at.strftime("%Y%m%d")  == @now.strftime("%Y%m%d")%>
-
 <h1 class="text-center">本日の予定</h1>
-<div class="wrapper">
-<div class="plans-left">
+<div class="row g-5">
+<div class="border p-3  col-lg-6 col-sm-12">
 <h2 class="center"><%= current_user.nickname%>さんの今日の予定</h2>
-  <div class="plan" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+  <div class="plan border h3" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
 <% if current_user.motion.last.plans1.present?%>
   <%= current_user.motion.last.plans1 %>
   <%= current_user.motion.last.count1.strftime('%H:%M') %>
   </div>
 <% end %> 
 <% if current_user.motion.last.plans2.present?%>
-  <div class="plan" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+  <div class="plan border h3" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
   <%= current_user.motion.last.plans2 %>
   <%= current_user.motion.last.count2.strftime('%H:%M')  %>
   </div> 
 <% end%>
 <% if current_user.motion.last.plans3.present?%>
-  <div class="plan" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+  <div class="plan border h3" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
   <%= current_user.motion.last.plans3  %>
   <%= current_user.motion.last.count3.strftime('%H:%M')  %>
   </div>
 <% end %>
 <% if current_user.motion.last.plans4.present?%>
-  <div class="plan" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+  <div class="plan border h3" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
   <%= current_user.motion.last.plans4  %>
   <%= current_user.motion.last.count4.strftime('%H:%M')%> 
   </div>
 <% end %>
  <% if current_user.motion.last.plans5.present?%> 
-  <div class="plan" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+  <div class="plan border h3" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
   <%= current_user.motion.last.plans5  %>
   <%= current_user.motion.last.count5.strftime('%H:%M')  %>  
   </div>
 <% end %>
 <h2 class="center">メモ<h2>
-<div class="memo">
-<%= current_user.motion.last.memo%>
+<div class="border p-3" , style="word-wrap: break-word;">
+<p><%= current_user.motion.last.memo %></p>
 </div>
 </div>
-<div class="weight-right">
+<div class="border p-3 col-lg-6 col-sm-12">
   <div class="whight">
   <div class="center">
   <div class="font weight">
   <h3><%=current_user.nickname%>さんの現在の体重</h3>
-  <%= current_user.motion.last.weight %>kgです
+  <em class="h1"><%= current_user.motion.last.weight %>kgです</em>
   </div>
   <div class="font bmidifference">
   <h3>現在の<%=current_user.nickname%>さんのBMIは<%= @bmi.round(2)%>
@@ -62,7 +62,7 @@
   <h3>BMIチエック 肥満度 標準体重の目安<h3>
    </div>
   </div>
-  <table class="border bmi">
+  <table class=" table-bordered w-100 mb-3">
     <tbody>
     <tr>
       <th>BMI</th>
@@ -94,15 +94,15 @@
     </tr>
     </tbody>
   </table>
-   <div class="center">
- <%= link_to "編集", edit_motion_path(@motion.id),class:"btn--white btn"%>
- <%= link_to "削除", motion_path(@motion.id), method: :delete, class:"btn--white btn" %>
+   <div class="text-center row mx-auto">
+ <%= link_to "編集", edit_motion_path(@motion.id),class:"btn btn-outline-secondary border py-2 my-1 col-lg-6 col-sm-12"%>
+ <%= link_to "削除", motion_path(@motion.id), method: :delete, class:" btn btn-outline-secondary border py-2 my-1   col-lg-6 col-sm-12" %>
  </div>
 </div>
 </div>
+
 </div>
-</div>
-<<<<<<< Updated upstream
+
 <% else%>
 <div class="container">
 <div class="text-center  inline">
@@ -111,16 +111,12 @@
 <% end%>
 
 
-<div class="main-chart">
+<div class="mt-5">
 <h2 class="text-center">過去の体重の履歴</h2>
 <%= line_chart current_user.motion.group_by_day(:created_at).sum(:weight) %>
-</div>
-</div class="plan-show">
+
+
 <% current_user.motion.each_with_index do |motion, index|%>
-<div class="btn">
-<li><%= link_to index, motion_path(motion.id), class: "show btn"%></li> 
-</div>
-=======
 <div class="mt-5">
 <h2 class="text-center">過去の体重のグラフ</h2>
 <%= line_chart current_user.motion.group_by_day(:created_at).sum(:weight) %>
@@ -143,11 +139,12 @@
 </div>
 </div>
 <% end %>
->>>>>>> Stashed changes
 </div>
 <% end %>
-</div>
 <% end %>
+</div>
+</div>
+
 </main>
 
 
