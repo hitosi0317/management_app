@@ -98,6 +98,15 @@
  <%= link_to "編集", edit_motion_path(@motion.id),class:"btn btn-outline-secondary border py-2 my-1 col-lg-6 col-sm-12"%>
  <%= link_to "削除", motion_path(@motion.id), method: :delete, class:" btn btn-outline-secondary border py-2 my-1   col-lg-6 col-sm-12" %>
  </div>
+ <div class="mt-5">
+<h2 class="text-center">過去の体重の履歴</h2>
+<%= line_chart current_user.motion.group_by_day(:created_at).sum(:weight) %>
+
+
+<% current_user.motion.each do |motion|%>
+<li><%= link_to motion.created_at.strftime("%F"), motion_path(motion.id)%></li> 
+</div>
+<% end %>
 </div>
 </div>
 
@@ -105,20 +114,12 @@
 <% else%>
 <div class="container">
 <div class="text-center  inline">
-<h2><%= link_to '今日の予定を設定する', new_motion_path, class: "border"%><h2>
+<h2><%= link_to '今日の予定を設定する', new_motion_path, class: "btn btn-outline-secondary"%><h2>
 </div>
 <% end%>
+<% else%>
+<h1>ようこそ</h1>
 
-
-<div class="mt-5">
-<h2 class="text-center">過去の体重の履歴</h2>
-<%= line_chart current_user.motion.group_by_day(:created_at).sum(:weight) %>
-
-
-<% current_user.motion.each_with_index do |motion, index|%>
-<li><%= link_to index, motion_path(motion.id)%></li> 
-</div>
-<% end %>
 <% end %>
 </div>
 </div>
