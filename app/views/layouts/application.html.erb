@@ -22,7 +22,8 @@
     
   
 
-       <ul class="nav fs-4">
+       <ul class="nav">
+      <li class="nav-item"><%= link_to "予定","/", class: "nav-link"%></li> 
       <li class="nav-item"><%= link_to "カレンダー", meetings_path, class: "nav-link"%></li> 
       <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"%></li>
 
