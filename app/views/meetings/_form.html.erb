@@ -1,7 +1,8 @@
+<div class="container">
 <%= form_with(model: meeting, local: true) do |form| %>
   <% if meeting.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+      <p><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</p>
 
       <ul>
         <% meeting.errors.full_messages.each do |message| %>
@@ -13,20 +14,18 @@
   <div class="container">
   <div class="mx-auto my-3 text-center border">
   <div class="my-5">
-    <%= form.label :name, "予定", class: "h2 d-block"%>
-    <%= form.text_field :name, class: " mx-auto w-50"%>
+    <%= form.label :name,"予定", class: "h2 d-block"%>
+    <%= form.text_field :name, class: "fs-1 mx-auto "%>
   </div>
 
-  <div class="form-group my-5">
-    <%= form.label :start_time, "予定日" ,class: "h2 d-block"%>
-    
-     
-    <%= form.date_select :start_time, {use_month_numbers: true}, class: "form-control my-3 w-50 d-block mx-auto  px-2"%>
+  <div class=" my-5">
+    <%= form.label :start_time, "予定日" ,class: "h2"%>
+    <%= form.date_select :start_time, {use_month_numbers: true}, class: "form-control my-3 fs-1 w-25  mx-auto "%>
     
   </div>
 
-  <div class="my-5 h2">
-    <%= form.submit class:"p-3" %>
+  <div class="my-5">
+    <%= form.submit class:"p-3 fs-1" %>
   </div>
   </div>
   </div>
