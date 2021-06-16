@@ -1,5 +1,5 @@
-<div class="container border">
-<div class="offset-lg-4 fs-4 ">
+<div class="container">
+<div class="offset-lg-4 fs-4 border ">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -11,8 +11,8 @@
   <strong>予定日時:</strong>
   <%= @meeting.start_time.strftime("%Y") %>年<%= @meeting.start_time.strftime("%m") %>月<%= @meeting.start_time.strftime("%d") %>日
 </p>
-<%= link_to 'カレンダーページへ戻る', meetings_path, class: "btn btn-outline-secondary fs-4 p-2 mb-5" %><br>
-<%= link_to '編集', edit_meeting_path(@meeting), class: "btn btn-outline-secondary fs-4 p-2 mb-3 w-50" %><br>
-<%= link_to '削除', meeting_path(@meeting),method: :delete, class: "btn btn-outline-secondary fs-4 p-2 mb-3 w-50"%><br>
+
+<%= link_to '編集', edit_meeting_path(@meeting), class: "btn btn-outline-dark fs-4 p-2 mb-3 w-50" %><br>
+<%= link_to '削除', meeting_path(@meeting),method: :delete, class: "btn btn-outline-dark fs-4 p-2 mb-3 w-50"%><br>
 
 </div>
