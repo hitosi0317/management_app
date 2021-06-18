@@ -1,5 +1,17 @@
+<<<<<<< Updated upstream
 <div class="container">
 <div class="offset-lg-4 fs-4 border ">
+=======
+<<<<<<< Updated upstream
+<div class="container border">
+<div class="offset-lg-4 fs-4 ">
+=======
+<div class="container">
+
+<div class="position-relative "style="height: 550px; ">
+<div class="fs-1 position-absolute top-50 start-50 translate-middle">
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -11,8 +23,23 @@
   <strong>予定日時:</strong>
   <%= @meeting.start_time.strftime("%Y") %>年<%= @meeting.start_time.strftime("%m") %>月<%= @meeting.start_time.strftime("%d") %>日
 </p>
+<<<<<<< Updated upstream
 
 <%= link_to '編集', edit_meeting_path(@meeting), class: "btn btn-outline-dark fs-4 p-2 mb-3 w-50" %><br>
 <%= link_to '削除', meeting_path(@meeting),method: :delete, class: "btn btn-outline-dark fs-4 p-2 mb-3 w-50"%><br>
+=======
+<<<<<<< Updated upstream
+<%= link_to 'カレンダーページへ戻る', meetings_path, class: "btn btn-outline-secondary fs-4 p-2 mb-5" %><br>
+<%= link_to '編集', edit_meeting_path(@meeting), class: "btn btn-outline-secondary fs-4 p-2 mb-3 w-50" %><br>
+<%= link_to '削除', meeting_path(@meeting),method: :delete, class: "btn btn-outline-secondary fs-4 p-2 mb-3 w-50"%><br>
+>>>>>>> Stashed changes
 
 </div>
+=======
+
+<%= link_to '編集', edit_meeting_path(@meeting), class: "btn btn-outline-dark fs-4 p-2 mb-3 w-50" %><br>
+<%= link_to '削除', meeting_path(@meeting),method: :delete, class: "btn btn-outline-dark fs-4 p-2 mb-3 w-50"%><br>
+</div>
+</div>
+</div>
+>>>>>>> Stashed changes
