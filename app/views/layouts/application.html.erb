@@ -43,8 +43,17 @@
     </header>
     <%= yield %>
     <footer class="footer">
-    <div class="container border-top">
-      <small>
+    <div class="container border-top py-4">
+     <h2>Management</h2>
+      <ul class="d-frex justify-content-end list-group list-group-horizontal">
+       <li class="me-5"><%= link_to "ホーム", "/", class: ""%></li>
+       <li class="me-5"><%= link_to "お問い合わせ", class: ""%></li>
+       <li class="me-5"><%= link_to "利用規約",  class: ""%></li>
+       <li class="me-5"><%= link_to "カレンダー", meetings_path, class: ""%></li>
+      </ul>
+    </div>
+    <div class="text-center pb-4">
+     <small >
          © 2021 hitosi
       </small>
     </div>
