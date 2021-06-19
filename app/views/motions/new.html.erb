@@ -14,31 +14,31 @@
         <div class="px-4">
         <h2>1項目</h2>
         <%= form.text_field :plans1, placeholder: "予定",class:" text-center h1 w-50 border-2"%>
-        <%= form.time_field :count1, class:"text-center h1 w-50 my-2 border-2"%>
+        <%= form.time_field :count1, class:"text-center h1 w-50 my-3 border-2"%>
         </div>
 
         <div class=" px-4">
         <h2>2項目</h2>
         <%= form.text_field :plans2, placeholder: "予定",class:"text-center h1 w-50 border-2" %>
-        <%= form.time_field :count2, class:"text-center h1 w-50 my-2 border-2" %>
+        <%= form.time_field :count2, class:"text-center h1 w-50 my-3 border-2" %>
         </div>
 
         <div class="px-4">
           <h2>3項目</h2>
         <%= form.text_field :plans3, placeholder: "予定",class:"text-center h1 w-50 border-2"%>
-        <%= form.time_field :count3, class:"text-center h1 w-50  my-2 border-2" %>
+        <%= form.time_field :count3, class:"text-center h1 w-50  my-3 border-2" %>
         </div>
 
         <div class=" px-4">
           <h2>4項目</h2>
         <%= form.text_field :plans4, placeholder: "予定",class:"text-center h1 w-50 border-2" %>
-        <%= form.time_field :count4, class:"text-center h1 w-50 my-2 border-2" %>
+        <%= form.time_field :count4, class:"text-center h1 w-50 my-3 border-2" %>
         </div>
 
         <div class="px-4">
           <h2>5項目</h2>
         <%= form.text_field :plans5, placeholder: "予定",class:"text-center h1 w-50 border-2" %>
-        <%= form.time_field :count5, class:"text-center h1 w-50  my-2 border-2" %>
+        <%= form.time_field :count5, class:"text-center h1 w-50  my-3 border-2" %>
         </div>  
       </div>
       
@@ -49,7 +49,7 @@
   
     </div>
     <div class="text-center p-3  mx-auto">
-    <span><%= form.submit "決定", class:"fs-3 btn btn-outline-dark d-block mx-auto p-3 w-25 "%></span>
+    <span><%= form.submit "決定", class:"fs-3 btn btn-outline-dark p-3", style: "width: 300px;"%></span>
     </div>
   <% end %>
 </div>
