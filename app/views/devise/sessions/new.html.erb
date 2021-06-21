@@ -1,28 +1,24 @@
 <main>
-<<<<<<< Updated upstream
-<div class="container border py-5 fs-2 mx-auto", style="line-height:2rem">
-<h1 class="mb-5 offset-lg-4">ログイン</h1>
-=======
+  
 <div class="container py-5 mx-auto", style="line-height:2rem">
 <div class="offset-lg-4">
 <h1 class="mb-5">ログイン</h1>
->>>>>>> Stashed changes
 
 <%= form_with model: @user,url: user_session_path, local: true do |f| %>
-   <div class='offset-lg-4'>
+   <div>
     <%= flash[:notice] %>
     <%= flash[:alert] %>
   </div>
-<<<<<<< Updated upstream
-  <div class="offset-lg-4 my-3">
-    <%= f.label :email %><br />
+
+  <div class="my-3">
+    <%= f.label :email,class: "fs-3" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"py-2" %>
   </div>
 
-  <div class="offset-lg-4 my-3">
-    <%= f.label :password %><br />
+  <div class=" my-3">
+    <%= f.label :password,class: "fs-3" %><br />
     <%= f.password_field :password, autocomplete: "current-password",class:"py-2" %>
-=======
+
   
   <div class="my-3">
     <%= f.label :email,class: "fs-3" %><br />
@@ -32,28 +28,22 @@
   <div class=" my-3">
     <%= f.label :password,class: "fs-3" %><br />
     <%= f.password_field :password, autocomplete: "current-password",class:"w-50 fs-4" %>
->>>>>>> Stashed changes
   </div>
   
   <% if devise_mapping.rememberable? %>
-<<<<<<< Updated upstream
-    <div class="offset-lg-4 my-3">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-=======
     <div class="my-4">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me ,class: "fs-3"%>
->>>>>>> Stashed changes
     </div>
   <% end %>
 
-  <div class="offset-lg-4 my-3">
-    <%= f.submit "ログイン" %>
+  <div class="my-3">
+    <%= f.submit "ログイン" ,class:"fs-3 btn btn-outline-dark p-3", style: "width: 300px;"%>
   </div>
 <% end %>
-<div class="offset-lg-4">
-<%= render "devise/shared/links" %>
+
+<%= render "devise/shared/links"%>
+
 </div>
 </div>
 </main>

@@ -95,9 +95,9 @@
     </tr>
     </tbody>
   </table>
-   <div class="text-center row mx-auto">
- <%= link_to "編集", edit_motion_path(@motion.id),class:"btn btn-outline-secondary border py-3 my-1 col-lg-6 col-sm-12"%>
- <%= link_to "削除", motion_path(@motion.id), method: :delete, class:" btn btn-outline-secondary border py-3 my-1   col-lg-6 col-sm-12" %>
+   <div class="text-center mx-auto">
+ <%= link_to "編集", edit_motion_path(@motion.id),class:"fs-3 btn btn-outline-dark p-3 my-2 w-50"%>
+ <%= link_to "削除", motion_path(@motion.id), method: :delete, class:"fs-3 btn btn-outline-dark p-3 my-2 w-50" %>
  </div>
  
 </div>
@@ -105,10 +105,12 @@
 <h2>体重のグラフ</h2>
 <%= line_chart current_user.motion.group_by_day(:created_at).sum(:weight) %>
 </div>
-<div class="">
+<div class="d-frex">
 <h2>過去の予定</h2>
 <% current_user.motion.each do |motion|%>
-<li><%= link_to motion.created_at.strftime("%F"), motion_path(motion.id)%></li> 
+<ul class=" d-inline">
+<li class="p-3 d-inline " ><%= link_to motion.created_at.strftime("%F"), motion_path(motion.id),class:"fs-3 text-primary"%></li> 
+</ul>
 <% end %>
 </div>
 
@@ -117,7 +119,7 @@
 <div class="top-image d-flex align-items-center "style="height: 600px;">
 <div class="mx-auto">
 <p class="fs-4">本日の予定やメモなどを設定して目標を立てましょう！！</p>
-<%= link_to '本日の予定を設定する', new_motion_path, class: "btn btn-outline-dark p-3"%>
+<%= link_to '本日の予定を設定する', new_motion_path, class: "fs-3 btn btn-outline-dark p-3"%>
 </div>
 </div>
 <% end%>
