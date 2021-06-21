@@ -1,11 +1,16 @@
 <main>
+<<<<<<< Updated upstream
 <div class=" container  border py-5 fs-4 mx-auto">
+=======
+<div class="container py-5 mx-auto">
+>>>>>>> Stashed changes
 <div class="offset-lg-4">
 <h1 class="mb-5 ">新規登録</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   
+<<<<<<< Updated upstream
    <div class="my-3 ">
         <%= f.label :nickname, class: "h2" %> <em>(10 characters maximum)</em><br />
         <%= f.text_field :nickname, autofocus: true, maxlength: "10",  class:"col-6" %>
@@ -14,12 +19,27 @@
    <div class="my-3 ">
     <%= f.label :height, class: "  h2" %> <em>(小数点以下第一位まで使用可能)</em><br />
     <%= f.number_field :height, step: '0.1',placeholder: "123.4", min: "120", class:"text-center"%>
+=======
+   <div class="my-3">
+    <%= f.label :nickname, class: "fs-3" %> <em>(10 characters maximum)</em><br />
+    <%= f.text_field :nickname, autofocus: true, maxlength: "10",  class:"w-25 fs-4" %>
+   </div>
+
+   <div class="my-3 ">
+    <%= f.label :height, class: "fs-3" %> <em>(小数点以下第一位まで使用可能)</em><br />
+    <%= f.number_field :height, step: '0.1',placeholder: "123.4", min: "120", class:"text-center w-25 fs-4"%>
+>>>>>>> Stashed changes
   </div>
 
 
   <div class="my-3">
+<<<<<<< Updated upstream
     <%= f.label :email, class: " h2" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"" %>
+=======
+    <%= f.label :email, class: "fs-3" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"w-50 fs-4" %>
+>>>>>>> Stashed changes
   </div>
 
   <div class="my-3 ">
@@ -27,12 +47,21 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
+<<<<<<< Updated upstream
     <%= f.password_field :password, autocomplete: "new-password", class:"  col-sm-8 " %>
   </div>
 
   <div class="my-3 ">
     <%= f.label :password_confirmation, class:" h2" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password",class:" mb-5" %>
+=======
+    <%= f.password_field :password, autocomplete: "new-password", class:"w-50 fs-4" %>
+  </div>
+
+  <div class="my-3 ">
+    <%= f.label :password_confirmation, class:"fs-3" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"w-50 mb-5 fs-4" %>
+>>>>>>> Stashed changes
   </div>
 
   <div class="fs-1-sm ">
