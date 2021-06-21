@@ -1,5 +1,6 @@
 <main>
-<div class="container py-5  mx-auto", style="line-height:2rem">
+  
+<div class="container py-5 mx-auto", style="line-height:2rem">
 <div class="offset-lg-4">
 <h1 class="mb-5">ログイン</h1>
 
@@ -8,19 +9,30 @@
     <%= flash[:notice] %>
     <%= flash[:alert] %>
   </div>
+
   <div class="my-3">
-    <%= f.label :email,class: "fs-2" %><br />
+    <%= f.label :email,class: "fs-3" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"py-2" %>
   </div>
 
   <div class=" my-3">
-    <%= f.label :password,class: "fs-2" %><br />
+    <%= f.label :password,class: "fs-3" %><br />
     <%= f.password_field :password, autocomplete: "current-password",class:"py-2" %>
+
+  
+  <div class="my-3">
+    <%= f.label :email,class: "fs-3" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"w-50 fs-4" %>
   </div>
 
+  <div class=" my-3">
+    <%= f.label :password,class: "fs-3" %><br />
+    <%= f.password_field :password, autocomplete: "current-password",class:"w-50 fs-4" %>
+  </div>
+  
   <% if devise_mapping.rememberable? %>
     <div class="my-4">
-      <%= f.check_box :remember_me,class: "" %>
+      <%= f.check_box :remember_me %>
       <%= f.label :remember_me ,class: "fs-3"%>
     </div>
   <% end %>
