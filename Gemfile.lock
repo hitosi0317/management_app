@@ -98,6 +98,7 @@ GEM
       activesupport (>= 4.2.0)
     groupdate (5.2.2)
       activesupport (>= 5)
+    high_voltage (3.1.2)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
@@ -279,6 +280,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   groupdate
+  high_voltage
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.5.3)
