@@ -63,3 +63,4 @@ gem 'simple_calendar', '~> 2.0'
 gem "chartkick"
 gem 'groupdate'
 gem 'rails-i18n'
+gem 'high_voltage'
