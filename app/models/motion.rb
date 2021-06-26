@@ -1,11 +1,7 @@
 class Motion < ApplicationRecord
   belongs_to :user
-
-<<<<<<< Updated upstream
-  validates :plans1,:count1, presence: true
-=======
+  
   validates :plans1, :count1, presence: true
->>>>>>> Stashed changes
   validates :weight, numericality: true
 
   validates :plans2, presence: true, unless: :count2?
