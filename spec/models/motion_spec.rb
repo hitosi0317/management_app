@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Motion, type: :model do
-<<<<<<< Updated upstream
-  pending "add some examples to (or delete) #{__FILE__}"
-=======
+
   before do
     @motion = FactoryBot.build(:motion)
   end
@@ -117,5 +115,4 @@ RSpec.describe Motion, type: :model do
       end
     end
   end
->>>>>>> Stashed changes
 end
