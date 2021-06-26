@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Motion, type: :model do
+
   before do
     @motion = FactoryBot.build(:motion)
   end
@@ -41,76 +42,76 @@ RSpec.describe Motion, type: :model do
 
     context '予定登録できない時' do
       it 'weightがなければ登録できない' do
-        @motion.weight = ""
+        @motion.weight = ''
         @motion.valid?
-        expect(@motion.errors.full_messages).to include "体重は数値で入力してください"
+        expect(@motion.errors.full_messages).to include '体重は数値で入力してください'
       end
       it 'plans1とcount1がなければ登録できない' do
-        @motion.plans1 = ""
-        @motion.count1 = ""
+        @motion.plans1 = ''
+        @motion.count1 = ''
         @motion.valid?
-        expect(@motion.errors.full_messages).to include "一項目以上を入力してください", "時刻を入力してください"
+        expect(@motion.errors.full_messages).to include '一項目以上を入力してください', '時刻を入力してください'
       end
-      it 'plans1があってもcount1がなければ登録できない'do
-        @motion.plans1 
-        @motion.count1 = ""
+      it 'plans1があってもcount1がなければ登録できない' do
+        @motion.plans1
+        @motion.count1 = ''
         @motion.valid?
-        expect(@motion.errors.full_messages).to include "時刻を入力してください"
+        expect(@motion.errors.full_messages).to include '時刻を入力してください'
       end
-      it 'count1があってもplans1がなければ登録できない'do
-        @motion.plans1 = ""
-        @motion.count1 
+      it 'count1があってもplans1がなければ登録できない' do
+        @motion.plans1 = ''
+        @motion.count1
         @motion.valid?
-        expect(@motion.errors.full_messages).to include "一項目以上を入力してください"
+        expect(@motion.errors.full_messages).to include '一項目以上を入力してください'
       end
-      it 'plans2があってもcount2がなければ登録できない'do
-        @motion.plans2 
-        @motion.count2 = ""
+      it 'plans2があってもcount2がなければ登録できない' do
+        @motion.plans2
+        @motion.count2 = ''
         @motion.valid?
-        expect(@motion.errors.full_messages).to include "Count2を入力してください"
+        expect(@motion.errors.full_messages).to include 'Count2を入力してください'
       end
-      it 'count2があってもplans2がなければ登録できない'do
-      @motion.plans2 = "" 
-      @motion.count2
-      @motion.valid?
-      expect(@motion.errors.full_messages).to include "Plans2を入力してください"
+      it 'count2があってもplans2がなければ登録できない' do
+        @motion.plans2 = ''
+        @motion.count2
+        @motion.valid?
+        expect(@motion.errors.full_messages).to include 'Plans2を入力してください'
       end
-      it 'plans3があってもcount3がなければ登録できない'do
-      @motion.plans3 
-      @motion.count3 = ""
-      @motion.valid?
-      expect(@motion.errors.full_messages).to include "Count3を入力してください"
+      it 'plans3があってもcount3がなければ登録できない' do
+        @motion.plans3
+        @motion.count3 = ''
+        @motion.valid?
+        expect(@motion.errors.full_messages).to include 'Count3を入力してください'
       end
-      it 'count3があってもplans2がなければ登録できない'do
-      @motion.plans3 = "" 
-      @motion.count3
-      @motion.valid?
-      expect(@motion.errors.full_messages).to include "Plans3を入力してください"
+      it 'count3があってもplans2がなければ登録できない' do
+        @motion.plans3 = ''
+        @motion.count3
+        @motion.valid?
+        expect(@motion.errors.full_messages).to include 'Plans3を入力してください'
       end
-      it 'plans4があってもcount3がなければ登録できない'do
-      @motion.plans4 
-      @motion.count4 = ""
-      @motion.valid?
-      expect(@motion.errors.full_messages).to include "Count4を入力してください"
+      it 'plans4があってもcount3がなければ登録できない' do
+        @motion.plans4
+        @motion.count4 = ''
+        @motion.valid?
+        expect(@motion.errors.full_messages).to include 'Count4を入力してください'
       end
 
-      it 'count4があってもplans4がなければ登録できない'do
-      @motion.plans4 = "" 
-      @motion.count4
-      @motion.valid?
-      expect(@motion.errors.full_messages).to include "Plans4を入力してください"
+      it 'count4があってもplans4がなければ登録できない' do
+        @motion.plans4 = ''
+        @motion.count4
+        @motion.valid?
+        expect(@motion.errors.full_messages).to include 'Plans4を入力してください'
       end
-      it 'plans5があってもcount5がなければ登録できない'do
-      @motion.plans5
-      @motion.count5 = ""
-      @motion.valid?
-      expect(@motion.errors.full_messages).to include "Count5を入力してください"
+      it 'plans5があってもcount5がなければ登録できない' do
+        @motion.plans5
+        @motion.count5 = ''
+        @motion.valid?
+        expect(@motion.errors.full_messages).to include 'Count5を入力してください'
       end
-      it 'count5があってもplans5がなければ登録できない'do
-      @motion.plans5 = "" 
-      @motion.count5
-      @motion.valid?
-      expect(@motion.errors.full_messages).to include "Plans5を入力してください"
+      it 'count5があってもplans5がなければ登録できない' do
+        @motion.plans5 = ''
+        @motion.count5
+        @motion.valid?
+        expect(@motion.errors.full_messages).to include 'Plans5を入力してください'
       end
     end
   end
