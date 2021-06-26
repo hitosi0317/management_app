@@ -3,7 +3,7 @@ class CreateMotions < ActiveRecord::Migration[6.0]
     create_table :motions do |t|
       t.float    :weight,   null: false
       t.string   :plans1,   null: false
-      t.string   :plans2 
+      t.string   :plans2    
       t.string   :plans3
       t.string   :plans4
       t.string   :plans5
@@ -12,7 +12,7 @@ class CreateMotions < ActiveRecord::Migration[6.0]
       t.time      :count3
       t.time      :count4
       t.time      :count5
-      t.text  :memo  
+      t.text     :memo  
       t.boolean  :checked   
       t.references :user,  foreign_key: true
      
