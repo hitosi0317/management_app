@@ -1,6 +1,6 @@
 class Motion < ApplicationRecord
   belongs_to :user
-  
+
   validates :plans1, :count1, presence: true
   validates :weight, numericality: true
 
