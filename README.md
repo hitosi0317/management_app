@@ -60,14 +60,10 @@
 - 目的: カレンダーを見ながら予定を入れてやることを明確にする。	
 - 詳細: カレンダーに予定を入れるとその情報が入れた日にちに表示される。	
 - ストーリー: カレンダーをクリックすることでカレンダーのページに遷移して新規予定作成をクリックすることで予定の作成ページに遷移して日付と予定を記述して送信するとカレンダーページにリダイレクトして入れた情報が反映される。
-## 8 予定完了機能
-- 目的: 明確にすることができる
-- 詳細: 予定をクリックするとCSSが適用され背景色が変化する
-- ストーリー: 予定作成ページで予定を作成し送信することでトップページに移動し予定表が表示されているのでクリックすると完了を行える
-## 9 体重推移グラフ機能
-- 目的: 過去の体重をグラフ上にすることで日々の変化を可視化することで食事の見直し、運動の負荷などの調整を意識してもらうため
-- 詳細: トップページにグラフ上で過去の体重を見ることができる
-- ストーリー: 予定作成ページで体重を入力するフォームに値を入力して送信することでトップページに表示される。
+
+
+
+
 # テーブル設計
 
 ## users テーブル
@@ -77,23 +73,23 @@
 | email                | string   | null: false  | unique :true  |
 | encrypted_password   | string   | null: false  |               |
 | nickname             | string   | null: false  |               | 
-| height               | float    | null: false  |               | 
 
 
 ### Association
 
-- has_many :motions
+- has_many :motion
 
 ##  motioons テーブル
 
 | Column                    | Type               |  Options         |
 | --------------------------| ------------------ | ---------------- |
 | weight                    | float              | null: false      |
-| plans1                    | string             | null: false      |
-| plans2                    | string             |                  |
-| plans3                    | string             |                  |
-| plans4                    | string             |                  |   
-| plans5                    | string             |                  |
+| training1                 | string             | null: false      |
+| training1                 | string             |                  |
+| training2                 | string             |                  |
+| training3                 | string             |                  |
+| training4                 | string             |                  |
+| training5                 | string             |                  |
 | count1                    | integer            | null: false      |
 | count2                    | integer            |                  |
 | count3                    | integer            |                  |
@@ -105,22 +101,7 @@
 
 ### Association
 
-- belongs_to :user
-
-## meetings テーブル
-
-| Column                    | Type               |  Options         |
-| --------------------------| ------------------ | ---------------- |
-| name                      | datetime           | null: false      |
-| start_time                | string             | null: false      |
-| user                      | references         | foreign_key      |
-p
-### Association
-
-- belongs_to :user
-
-
-  
+- berongs_to :user 
 
 
 
