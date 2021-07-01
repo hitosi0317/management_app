@@ -11,7 +11,7 @@ FactoryBot.define do
     count3                    { '17:30' }
     count4                    { '18:30' }
     count5                    { '19:30' }
-    memo                      {'テスト確認します'}
+    memo                      { 'テスト確認します' }
     association :user
   end
 end
