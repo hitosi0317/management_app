@@ -1,50 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< Updated upstream
-  <head>
-    <title>ManagementApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-  
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-     <%# <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-  <header>
-  
-  <div class="container">
-      <div class="d-flex justify-content-between my-4 border-bottom" >
-      <h1><%= link_to "Management", "/"%></h1>
-
-      <% if user_signed_in?%>
-    
-  
-
-       <ul class="nav">
-      <li class="nav-item"><%= link_to "予定","/", class: "nav-link"%></li> 
-      <li class="nav-item"><%= link_to "カレンダー", meetings_path, class: "nav-link"%></li> 
-      <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"%></li>
-
-      </ul>
-       
-      <% else %>
-    
-
-        <ul class="nav">
-      <li class="nav-item"><%= link_to 'ログイン',  new_user_session_path, class: "nav-link"%></li>
-      <li class="nav-item"><%= link_to '新規登録',  new_user_registration_path, class: "nav-link" %></li>
-
-      </ul>
-    
-      <% end %>
-   </div>
-    </header>
-    <%= yield %>
-
-=======
 <head>
   <title>ManagementApp</title>
   <%= csrf_meta_tags %>
@@ -87,27 +42,23 @@
   </header>
   <%= yield %>
   <footer>
->>>>>>> Stashed changes
     <div class="container border-top py-4">
-     <h2>Management</h2>
+      <h2>Management</h2>
       <ul class="d-frex justify-content-end list-group list-group-horizontal">
-       <li class="me-5"><%= link_to "ホーム", "/", class: ""%></li>
-       <li class="me-5"><%= link_to "お問い合わせ", class: ""%></li>
-       <li class="me-5"><%= link_to '利用規約', page_path('terms') %></li>
-       <li class="me-5"><%= link_to "カレンダー", meetings_path, class: ""%></li>
+        <li class="me-5">
+          <%= link_to "ホーム", "/", class: ""%>
+        </li>
+        <li class="me-5">
+          <%= link_to "お問い合わせ", class: ""%>
+        </li>
+        <li class="me-5">
+          <%= link_to '利用規約', page_path('terms') %>
+        </li>
+        <li class="me-5">
+          <%= link_to "カレンダー", meetings_path, class: ""%>
+        </li>
       </ul>
     </div>
-    <div class="text-center pb-4">
-<<<<<<< Updated upstream
-     <small >
-         © 2021 hitosi
-      </small>
-    </div>
-    </footer>
-     
-  </body>
-</html>
-=======
      <small>
          © 2021 hitosi
       </small>
@@ -115,4 +66,3 @@
   </footer>
 </body>
 </html>
->>>>>>> Stashed changes
