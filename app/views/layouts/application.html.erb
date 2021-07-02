@@ -3,10 +3,10 @@
 <head>
   <title>ManagementApp</title>
   <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-      <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-        <%# <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-          <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%# <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
   <header>
@@ -27,19 +27,21 @@
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"%>
             </li>
           </ul>
-          <% else %>
-            <ul class="nav">
-              <li class="nav-item">
-                <%= link_to 'ログイン',  new_user_session_path, class: "nav-link"%>
-              </li>
-              <li class="nav-item">
-                <%= link_to '新規登録',  new_user_registration_path, class: "nav-link" %>
-              </li>
-            </ul>
-            <% end %>
+        <% else %>
+          <ul class="nav">
+            <li class="nav-item">
+              <%= link_to 'ログイン',  new_user_session_path, class: "nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to '新規登録',  new_user_registration_path, class: "nav-link" %>
+            </li>
+          </ul>
+        <% end %>
       </div>
+    </div>
   </header>
   <%= yield %>
+  <footer>
     <div class="container border-top py-4">
       <h2>Management</h2>
       <ul class="d-frex justify-content-end list-group list-group-horizontal">
@@ -57,9 +59,10 @@
         </li>
       </ul>
     </div>
-    <div class="text-center pb-4"> <small>
+     <small>
          © 2021 hitosi
-      </small> </div>
-    </footer>
+      </small>
+    </div>
+  </footer>
 </body>
 </html>
