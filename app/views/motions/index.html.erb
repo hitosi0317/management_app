@@ -1,145 +1,136 @@
 <main>
-<div class="plan-image">
-<div class="container text-center ">
-<%if user_signed_in? %>
-<% if  @motion != nil && current_user.motion != [] && current_user.motion.last.created_at.strftime("%Y%m%d")  == @now.strftime("%Y%m%d")%>
-<h1 class="text-center">本日の予定</h1>
-<div class="row g-5">
-<div class="border p-3   col-lg-6 col-sm-12">
-<h2 class="center"><%= current_user.nickname%>さんの本日の時間割</h2>
-  <div class="plan border fs-2 py-3 w-75 mx-auto" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
-<% if current_user.motion.last.plans1.present?%>
-  <%= current_user.motion.last.plans1 %>
-  <%= current_user.motion.last.count1.strftime('%H:%M') %>
+  <div class="plan-image">
+    <div class="container text-center ">
+      <%if user_signed_in? %>
+        <% if  @motion != nil && current_user.motion != [] && current_user.motion.last.created_at.strftime("%Y%m%d")  == @now.strftime("%Y%m%d")%>
+          <h1 class="text-center">本日の予定</h1>
+          <div class="row g-5">
+            <div class="border p-3 col-lg-6 col-sm-12">
+              <h2 class="center"><%= current_user.nickname%>さんの本日の時間割</h2>
+              <div class="plan border fs-2 py-3 w-75 mx-auto" data-id=<%=current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+              <% if current_user.motion.last.plans1.present?%>
+                <%= current_user.motion.last.plans1 %>
+                <%= current_user.motion.last.count1.strftime('%H:%M') %>
+              </div>
+              <% end %>
+              <% if current_user.motion.last.plans2.present?%>
+              <div class="plan border fs-2 py-3 w-75 mx-auto" data-id=<%=current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+                <%= current_user.motion.last.plans2 %>
+                <%= current_user.motion.last.count2.strftime('%H:%M')  %>
+              </div>
+              <% end%>
+              <% if current_user.motion.last.plans3.present?%>
+              <div class="plan border fs-2 py-3 w-75 mx-auto" data-id=<%=current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+                <%= current_user.motion.last.plans3  %>
+                <%= current_user.motion.last.count3.strftime('%H:%M')  %>
+              </div>
+              <% end %>
+              <% if current_user.motion.last.plans4.present?%>
+              <div class="plan border fs-2 py-3 w-75 mx-auto" data-id=<%=current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+                <%= current_user.motion.last.plans4  %>
+                <%= current_user.motion.last.count4.strftime('%H:%M')%>
+              </div>
+              <% end %>
+              <% if current_user.motion.last.plans5.present?%>
+              <div class="plan border fs-2 py-3 w-75 mx-auto" data-id=<%=current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
+                <%= current_user.motion.last.plans5  %>
+                <%= current_user.motion.last.count5.strftime('%H:%M')  %>
+              </div>
+              <% end %>
+              <h2 class="center">メモ</h2>
+              <div class="border w-75 mx-auto p-3" , style="word-wrap: break-word;">
+                <p>
+                  <%= current_user.motion.last.memo %>
+                </p>
+              </div>
+            </div>
+            <div class="border p-3 col-lg-6 col-sm-12">
+              <div>
+                <div class="center">
+                  <h2>
+                  <%=current_user.nickname%>さんの現在の体重</h3> <em class="h1"><%= current_user.motion.last.weight %>kgです</em> </div>
+                  <div class="font bmidifference">
+                    <p>現在の<%=current_user.nickname%>さんのBMIは<%= @bmi.round(2)%></p>
+                    <%if @bmi <= 25.00 && @bmi >= 18.50 %>
+                    <p>標準です！！この体重を維持しましょう！！</p> <span>(※BMIを基準にしています)</span>
+                    <% elsif @bmi <= 25.00%>
+                    <p>痩せ気味です 標準まで
+                    <%= @bmidifference.round(2) %>増やしましょう!!</p>
+                    <% else %>
+                    <p>肥満気味です 標準まで
+                    <%= @bmidifference.round(2) %>減らしましょう!!</p>
+                    <% end%>
+                    <h3>BMIチエック 肥満度 標準体重の目安<h3>
+                  </div>
+                </div>
+                <table class=" table-bordered w-100 mb-3">
+                  <tbody>
+                    <tr>
+                      <th>BMI</th>
+                      <th>肥満度判定(目安)</th>
+                    </tr>
+                    <tr>
+                      <td>18.5未満</td>
+                      <td>低体重 (やせ)</td>
+                    </tr>
+                    <tr>
+                      <td>18.5~25未満</td>
+                      <td>普通体重</td>
+                    </tr>
+                    <tr>
+                      <td>25~30未満</td>
+                      <td>肥満 (1度)</td>
+                    </tr>
+                    <tr>
+                      <td>30~35未満</td>
+                      <td>肥満 (2度)</td>
+                    </tr>
+                    <tr>
+                      <td>35~40未満</td>
+                      <td>肥満 (3度)</td>
+                    </tr>
+                    <tr>
+                      <td>40以上</td>
+                      <td>肥満 (4度)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              <div class="text-center mx-auto">
+                <%= link_to "編集", edit_motion_path(@motion.id),class:"fs-3 btn btn-outline-dark p-3 my-2 w-50"%>
+                  <%= link_to "削除", motion_path(@motion.id), method: :delete, class:"fs-3 btn btn-outline-dark p-3 my-2 w-50" %>
+              </div>
+            </div>
+            <div class="mt-5">
+              <h2>体重のグラフ</h2>
+              <%= line_chart current_user.motion.group_by_day(:created_at).sum(:weight) %>
+            </div>
+            <div class="d-frex">
+              <h2>過去の予定</h2>
+              <% current_user.motion.each do |motion|%>
+                <ul class=" d-inline">
+                  <li class="p-3 d-inline ">
+                    <%= link_to motion.created_at.strftime("%F"), motion_path(motion.id),class:"fs-3 text-primary"%>
+                  </li>
+                </ul>
+              <% end %>
+            </div>
+          </div>
+        <% else%>
+        <div class="top-image d-flex align-items-center " style="height: 600px;">
+          <div class="mx-auto">
+            <p class="fs-4">本日の予定やメモなどを設定して目標を立てましょう！！</p>
+            <%= link_to '本日の予定を設定する', new_motion_path, class: "fs-3 btn btn-outline-dark p-3"%>
+          </div>
+        </div>
+        <% end%>
+      <% else%>
+        <div class="top-image d-flex align-items-center " style="height: 600px;">
+          <div class="mx-auto">
+            <h1>ようこそ</h1>
+            <p class="fs-4">自己管理をして毎日充実した1日を過ごそう！！</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %> 
-<% if current_user.motion.last.plans2.present?%>
-  <div class="plan border fs-2 py-3 w-75 mx-auto" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
-  <%= current_user.motion.last.plans2 %>
-  <%= current_user.motion.last.count2.strftime('%H:%M')  %>
-  </div> 
-<% end%>
-<% if current_user.motion.last.plans3.present?%>
-  <div class="plan border fs-2 py-3 w-75 mx-auto" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
-  <%= current_user.motion.last.plans3  %>
-  <%= current_user.motion.last.count3.strftime('%H:%M')  %>
-  </div>
-<% end %>
-<% if current_user.motion.last.plans4.present?%>
-  <div class="plan border fs-2 py-3 w-75 mx-auto" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
-  <%= current_user.motion.last.plans4  %>
-  <%= current_user.motion.last.count4.strftime('%H:%M')%> 
-  </div>
-<% end %>
- <% if current_user.motion.last.plans5.present?%> 
-  <div class="plan border fs-2 py-3 w-75 mx-auto" data-id=<%= current_user.motion.last.id %> data-check=<%= current_user.motion.last.checked %>>
-  <%= current_user.motion.last.plans5  %>
-  <%= current_user.motion.last.count5.strftime('%H:%M')  %>  
-  </div>
-<% end %>
-<h2 class="center">メモ<h2>
-<div class="border w-75 mx-auto p-3" , style="word-wrap: break-word;">
-<p><%= current_user.motion.last.memo %></p>
-</div>
-</div>
-<div class="border p-3 col-lg-6 col-sm-12">
-  <div class="whight">
-  <div class="center">
-  
-  <h2><%=current_user.nickname%>さんの現在の体重</h3>
-  <em class="h1"><%= current_user.motion.last.weight %>kgです</em>
-  </div>
-  <div class="font bmidifference">
-  <p>現在の<%=current_user.nickname%>さんのBMIは<%= @bmi.round(2)%></p>
-  <%if @bmi <= 25.00 && @bmi >= 18.50 %>
-   <p>標準です！！この体重を維持しましょう！！</p>
-   <span>(※BMIを基準にしています)</span>
-  <% elsif @bmi <= 25.00%>
-      <p>痩せ気味です  標準まで<%= @bmidifference.round(2) %>増やしましょう!!</p>
-
-  <% else %>
-   <p>肥満気味です  標準まで<%= @bmidifference.round(2) %>減らしましょう!!</p>
-  <% end%>
-  <h3>BMIチエック 肥満度 標準体重の目安<h3>
-   </div>
-  </div>
-  <table class=" table-bordered w-100 mb-3">
-    <tbody>
-    <tr>
-      <th>BMI</th>
-      <th>肥満度判定(目安)</th>
-    </tr>
-    <tr>
-      <td>18.5未満</td>
-      <td>低体重 (やせ)</td>
-    </tr>
-    <tr>
-      <td>18.5~25未満</td>
-      <td>普通体重</td>
-    </tr>
-    <tr>
-      <td>25~30未満</td>
-      <td>肥満 (1度)</td>
-    </tr>
-    <tr>
-      <td>30~35未満</td>
-      <td>肥満 (2度)</td>
-    </tr>
-    <tr>
-      <td>35~40未満</td>
-      <td>肥満 (3度)</td>
-    </tr>
-    <tr>
-      <td>40以上</td>
-      <td>肥満 (4度)</td>
-    </tr>
-    </tbody>
-  </table>
-   <div class="text-center mx-auto">
- <%= link_to "編集", edit_motion_path(@motion.id),class:"fs-3 btn btn-outline-dark p-3 my-2 w-50"%>
- <%= link_to "削除", motion_path(@motion.id), method: :delete, class:"fs-3 btn btn-outline-dark p-3 my-2 w-50" %>
- </div>
- 
-</div>
-<div class="mt-5">
-<h2>体重のグラフ</h2>
-<%= line_chart current_user.motion.group_by_day(:created_at).sum(:weight) %>
-</div>
-<div class="d-frex">
-<h2>過去の予定</h2>
-<% current_user.motion.each do |motion|%>
-<ul class=" d-inline">
-<li class="p-3 d-inline " ><%= link_to motion.created_at.strftime("%F"), motion_path(motion.id),class:"fs-3 text-primary"%></li> 
-</ul>
-<% end %>
-</div>
-
-</div>
-<% else%>
-<div class="top-image d-flex align-items-center "style="height: 600px;">
-<div class="mx-auto">
-<p class="fs-4">本日の予定やメモなどを設定して目標を立てましょう！！</p>
-<%= link_to '本日の予定を設定する', new_motion_path, class: "fs-3 btn btn-outline-dark p-3"%>
-</div>
-</div>
-<% end%>
-<% else%>
-<div class="top-image d-flex align-items-center "style="height: 600px;">
-<div class="mx-auto">
-<h1>ようこそ</h1>
-<p class="fs-4">自己管理をして毎日充実した1日を過ごそう！！</p>
-</div>
-</div>
-
-
-<% end %>
-</div>
-</div>
-
 </main>
-
-
-
-
- 
-

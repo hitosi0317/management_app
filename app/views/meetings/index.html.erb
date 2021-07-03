@@ -1,22 +1,21 @@
 <main>
-<div class="container" style="height: 550px;">
-<p id="notice"><%= notice %></p>
-<div class="text-center my-5">
-<%= link_to '新規予定作成', new_meeting_path, class: "fs-1 btn-outline-dark border border-1 border-dark rounded my-4 p-3", style: "text-decoration: none;"   %>
-</div>
-<%= month_calendar events: @meetings do |date, meetings| %>
-  <%= date.strftime("%d") %><span>日</span>
-  <%if user_signed_in?%>
-  <% meetings.each do |meeting|%>
-  <% if meeting.user_id == current_user.id%>
+  <div class="container" style="height: 550px;">
+    <p id="notice"><%= notice %></p>
+    <div class="text-center my-5">
+      <%= link_to '新規予定作成', new_meeting_path, class: "fs-1 btn-outline-dark border border-1 border-dark rounded my-4 p-3", style: "text-decoration: none;"   %>
+    </div>
+    <%= month_calendar events: @meetings do |date, meetings| %>
+    <%= date.strftime("%d") %><span>日</span>
+    <%if user_signed_in?%>
+    <% meetings.each do |meeting|%>
+    <% if meeting.user_id == current_user.id%>
     <div>
-    <%= link_to meeting.name, meeting_path(meeting.id)%> 
-     
+      <%= link_to meeting.name, meeting_path(meeting.id)%> 
     </div>
     <% end%>
-  <% end %>
-  <% end %>
-<% end %>
-</div>
+    <% end %>
+    <% end %>
+    <% end %>
+  </div>
 </main>
 

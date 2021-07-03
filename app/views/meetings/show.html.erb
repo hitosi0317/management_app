@@ -1,20 +1,18 @@
-
 <div class="container">
-
-<div class="position-relative "style="height: 550px; ">
-<div class="fs-1 position-absolute top-50 start-50 translate-middle">
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>予定:</strong>
-  <%= @meeting.name %>
-</p>
-<p>
-  <strong>予定日時:</strong>
-  <%= @meeting.start_time.strftime("%Y") %>年<%= @meeting.start_time.strftime("%m") %>月<%= @meeting.start_time.strftime("%d") %>日
-</p>
-<%= link_to 'カレンダーへ戻る', meetings_path, class: "fs-3 btn btn-outline-dark p-3 my-3",style:"width: 300px;" %>
-<%= link_to '編集', edit_meeting_path(@meeting), class: "fs-3 btn btn-outline-dark p-3 my-3", style:"width: 300px;" %><br>
-<%= link_to '削除', meeting_path(@meeting),method: :delete, class: "fs-3 btn btn-outline-dark p-3 my-3", style:"width: 300px;"%><br>
-</div>
-</div>
+  <div class="position-relative "style="height: 550px; ">
+    <div class="fs-1 position-absolute top-50 start-50 translate-middle">
+      <p id="notice"><%= notice %></p>
+      <p>
+      <strong>予定:</strong>
+      <%= @meeting.name %>
+      </p>
+      <p>
+      <strong>予定日時:</strong>
+      <%= @meeting.start_time.strftime("%Y") %>年<%= @meeting.start_time.strftime("%m") %>月<%= @meeting.start_time.strftime("%d") %>日
+      </p>
+      <%= link_to 'カレンダーへ戻る', meetings_path, class: "fs-3 btn btn-outline-dark p-3 my-3",style:"width: 300px;" %>
+      <%= link_to '編集', edit_meeting_path(@meeting), class: "fs-3 btn btn-outline-dark p-3 my-3", style:"width: 300px;" %><br>
+      <%= link_to '削除', meeting_path(@meeting),method: :delete, class: "fs-3 btn btn-outline-dark p-3 my-3", style:"width: 300px;"%><br>
+    </div>
+  </div>
 </div>

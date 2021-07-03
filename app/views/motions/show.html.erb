@@ -1,56 +1,45 @@
 <div class="container" style="height: 550px;">
-
-
   <h1 class="text-center"><%= @motion.created_at.strftime(('%F'))%>の履歴です</h1>
-
-<% if @motion != nil%>
-
-<table class="text-center table-bordered h1 w-100 mb-3 ">
+  <% if @motion != nil%>
+  <table class="text-center table-bordered h1 w-100 mb-3 ">
     <tbody>
-  <tr>
-  <td>体重</td>
-  <td><%= @motion.weight %>kg</td>
-  </tr>
-    <tr>
-  <td><%= @motion.plans1%></td>
- <td><%= @motion.count1.strftime('%H:%M')%></td>
-  <tr>
-<% if @motion.plans2.present?%>
-  </tr>
-  <td><%= @motion.plans2%></td>
-  <td><%= @motion.count2.strftime('%H:%M')%></td>
-  </tr>
-<% end%>
-<% if @motion.plans3.present?%>
-  <tr>
-  <td><%= @motion.plans3  %></td>
-  <td><%= @motion.count3.strftime('%H:%M')%></td>
-  </tr>
-<% end %>
-<% if @motion.plans4.present?%>
-  <tr>
-  <td><%= @motion.plans4  %></td>
-  <td><%= @motion.count4.strftime('%H:%M')%></td> 
-  </tr>
-<% end %>
- <% if @motion.plans5.present?%> 
-  <tr>
-  <td><%= @motion.plans5%></td>
-  <td><%=@motion.count5.strftime('%H:%M')%></td>  
-  </tr>
-<% end %>
-  
+      <tr>
+        <td>体重</td>
+        <td><%= @motion.weight %>kg</td>
+      </tr>
+      <tr>
+        <td><%= @motion.plans1%></td>
+        <td><%= @motion.count1.strftime('%H:%M')%></td>
+      <tr>
+      <% if @motion.plans2.present?%>
+      </tr>
+        <td><%= @motion.plans2%></td>
+        <td><%= @motion.count2.strftime('%H:%M')%></td>
+      </tr>
+      <% end%>
+      <% if @motion.plans3.present?%>
+      <tr>
+        <td><%= @motion.plans3  %></td>
+        <td><%= @motion.count3.strftime('%H:%M')%></td>
+      </tr>
+      <% end %>
+      <% if @motion.plans4.present?%>
+      <tr>
+        <td><%= @motion.plans4  %></td>
+        <td><%= @motion.count4.strftime('%H:%M')%></td> 
+      </tr>
+      <% end %>
+      <% if @motion.plans5.present?%> 
+      <tr>
+        <td><%= @motion.plans5%></td>
+        <td><%=@motion.count5.strftime('%H:%M')%></td>  
+      </tr>
+      <% end %> 
     </tbody>
-</table>
-
-<div class="border my-3" style="word-wrap: break-word;">
-<h2 class="text-center">メモ</h2>
-<%= @motion.memo%>
-</div>
-  
-  
-</div>
-
-
+  </table>
+  <div class="border my-3" style="word-wrap: break-word;">
+    <h2 class="text-center">メモ</h2>
+    <%= @motion.memo%>
+  </div>
 <% end %>
 </div>
