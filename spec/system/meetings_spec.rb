@@ -51,11 +51,7 @@ RSpec.describe 'カレンダー予定作成', type: :system do
       expect(page).to have_link('新規予定作成')
       # カレンダー予定作成ページに移動する
       visit new_meeting_path
-<<<<<<< Updated upstream
-      # meeting[name]を空にする
-=======
       # meeting[name]だけを空にする
->>>>>>> Stashed changes
       select '2020', from: 'meeting[start_time(1i)]'
       select '1', from: 'meeting[start_time(2i)]'
       select '1', from: 'meeting[start_time(3i)]'
